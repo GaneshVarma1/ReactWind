@@ -1,0 +1,70 @@
+@layer utilities {
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark .dark-card {
+    @apply bg-gray-800 text-white border-gray-700;
+  }
+
+  .dark .text-gray-900 {
+    @apply text-white;
+  }
+
+  .dark .text-gray-800 {
+    @apply text-gray-100;
+  }
+
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+
+  .dark .text-gray-600 {
+    @apply text-gray-300;
+  }
+
+  .dark .bg-white {
+    @apply bg-gray-900;
+  }
+
+  .dark .border-gray-200 {
+    @apply border-gray-700;
+  }
+}
+
+/* Mouse gradient effect */
+:root {
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+}
+
+.mouse-gradient {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(129, 140, 248, 0.15),
+    transparent 40%
+  );
+}
+
+.dark .mouse-gradient {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(129, 140, 248, 0.1),
+    transparent 40%
+  );
+}
+
+/* Gradient text effect */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+}
+
+/* Button effects */
+.fancy-button {
+  @apply relative overflow-hidden transition-all duration-300 
+         bg-gradient-to-r from-primary-500 to-secondary-500
+         hover:from-primary-600 hover:to-secondary-600
+         text-white font-semibold rounded-lg
+         transform hover:scale-105 hover:shadow-lg
+         active:scale-95;
+}

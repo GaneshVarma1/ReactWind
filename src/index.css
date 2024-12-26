@@ -1,0 +1,48 @@
+@import './styles/darkMode.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+  
+  .hover-card {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .mouse-gradient {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(var(--gradient-color), 0.15),
+      transparent 40%
+    );
+  }
+
+  .fancy-button {
+    @apply relative overflow-hidden transition-all duration-300 
+           bg-gradient-to-r from-primary-500 to-secondary-500
+           hover:from-primary-600 hover:to-secondary-600
+           text-white font-semibold rounded-lg
+           transform hover:scale-105 hover:shadow-lg
+           active:scale-95;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
