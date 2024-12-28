@@ -683,7 +683,7 @@ function Carousel() {
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
                 Image Marquee 🖼️
               </h3>
-              <MarqueeImages2 />
+              
             </div>
           </div>
         </section>
