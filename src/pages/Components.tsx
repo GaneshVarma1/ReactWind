@@ -4,7 +4,9 @@ import { HeroSections } from '../components/sections/HeroSections';
 import { HeaderExamples } from '../components/sections/HeaderExamples';
 import { PricingTables } from '../components/sections/PricingTables';
 import { GalleryExamples } from '../components/sections/GalleryExamples';
-import { MarqueeExamples } from '../components/sections/MarqueeExamples';
+import { MarqueeText } from '../components/sections/MarqueeText';
+import { MarqueeLogo } from '../components/sections/MarqueeLogo';
+import { MarqueeImages2 } from '../components/sections/MarqueeImages2';
 import { FormExamples } from '../components/sections/FormExamples';
 import { SaasHero } from '../components/sections/SaasHero';
 import { FeatureSection } from '../components/sections/FeatureSection';
@@ -647,49 +649,248 @@ function Carousel() {
     `,
   },
   {
-    title: 'Marquee Examples',
-    component: <MarqueeExamples />,
-    code: `import React from 'react';
-    import { MarqueeImages2 } from './MarqueeImages2';
-    import { MarqueeText } from './MarqueeText';
-    import { MarqueeLogo } from './MarqueeLogo';
-    
-    export const MarqueeExamples = () => {
-      return (
-        <section className="py-16" id="marquee">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-              Marquee Examples ✨
-            </h2>
-    
-            {/* Text Marquee */}
-            <div className="mb-16">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Text Marquee 📝
-              </h3>
-              <MarqueeText />
-            </div>
-    
-            {/* Logo Marquee */}
-            <div className="mb-16">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Logo Marquee 🎯
-              </h3>
-              <MarqueeLogo />
-            </div>
-    
-            {/* Image Marquee */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Image Marquee 🖼️
-              </h3>
-              
-            </div>
+    title: 'Marquee Logo',
+    component: <MarqueeLogo />,
+    code: `
+  import React from 'react';
+  import { motion } from 'framer-motion';
+  
+  const logos = [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png",
+    "https://www.logo.wine/a/logo/Instagram/Instagram-Wordmark-Logo.wine.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png",
+    "https://cdn.freelogovectors.net/wp-content/uploads/2023/09/next-js-logo-freelogovectors.net_.png",
+    "https://1000logos.net/wp-content/uploads/2017/03/Nike-Logo-1971-now.png",
+    "https://download.logo.wine/logo/Porsche/Porsche-Logo.wine.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png",
+    "https://www.logo.wine/a/logo/Instagram/Instagram-Wordmark-Logo.wine.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png",
+    "https://cdn.freelogovectors.net/wp-content/uploads/2023/09/next-js-logo-freelogovectors.net_.png",
+    "https://1000logos.net/wp-content/uploads/2017/03/Nike-Logo-1971-now.png",
+    "https://download.logo.wine/logo/Porsche/Porsche-Logo.wine.png",
+  ];
+  
+  const LogoComponent = ({ src, index }: { src: string; index: number }) => (
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      className="flex-shrink-0 px-8"
+    >
+      <img
+        src={src}
+        alt={\`Brand logo \${index + 1}\`}
+        className="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 
+                   dark:brightness-90 dark:hover:brightness-110 hover:cursor-pointer transform-gpu"
+      />
+    </motion.div>
+  );
+  
+  export const MarqueeLogo = () => {
+    return (
+      <div className="relative bg-gradient-to-r from-white via-gray-50 to-white 
+                      dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
+                      py-12 overflow-hidden backdrop-blur-sm">
+        <div className="flex flex-col gap-12">
+          {/* First row */}
+          <div className="relative h-12">
+            <motion.div
+              animate={{
+                x: [0, -2000],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+              className="flex absolute"
+            >
+              {[...logos, ...logos, ...logos].map((logo, index) => (
+                <LogoComponent key={\`row1-\${index}\`} src={logo} index={index} />
+              ))}
+            </motion.div>
           </div>
-        </section>
-      );
-    };`
+  
+          {/* Second row - reverse direction */}
+          <div className="relative h-12">
+            <motion.div
+              animate={{
+                x: [-2000, 0],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+              className="flex absolute"
+            >
+              {[...logos, ...logos, ...logos].map((logo, index) => (
+                <LogoComponent key={\`row2-\${index}\`} src={logo} index={index} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+    `,
   },
+  {
+    title: 'Marquee Text',
+    component: <MarqueeText />,
+    code: `
+  import React from 'react';
+  import { motion } from 'framer-motion';
+  
+  const texts = [
+    "Beautiful React Components ✨",
+    "Production Ready 🚀",
+    "Fully Customizable 🎨",
+    "Dark Mode Support 🌙",
+    "Responsive Design 📱",
+    "Modern & Clean UI 💅",
+  ];
+  
+  export const MarqueeText = () => {
+    return (
+      <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 
+                      dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
+                      py-8 overflow-hidden">
+        <div className="relative h-8 overflow-hidden">
+          <motion.div
+            animate={{
+              x: [0, -1000],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            className="flex absolute whitespace-nowrap"
+          >
+            {[...texts, ...texts].map((text, index) => (
+              <div
+                key={index}
+                className="mx-8 text-xl font-semibold text-gray-900 dark:text-white transform-gpu"
+              >
+                {text}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    );
+  };
+    `,
+  },  
+  {
+    title: 'Marquee Image Slider',
+    component: <MarqueeImages2 />,
+    code: `
+  import React from 'react';
+  import { motion } from 'framer-motion';
+  
+  const images = [
+    "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop",
+    // Duplicate images for animation continuity
+    "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=400&fit=crop",
+  ];
+  
+  const ImageComponent = ({ src, alt }: { src: string; alt: string }) => (
+    <motion.div
+      whileHover={{ y: -10, scale: 1.02 }}
+      className="flex-shrink-0 px-2 transition-all duration-300"
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="w-[400px] h-[250px] rounded-xl shadow-lg object-cover 
+                   transition-all duration-300 dark:brightness-90 dark:hover:brightness-110
+                   hover:shadow-2xl transform-gpu"
+      />
+    </motion.div>
+  );
+  
+  export const MarqueeImages2 = () => {
+    return (
+      <div className="relative bg-gradient-to-r from-gray-50/50 via-white to-gray-50/50 
+                      dark:from-gray-900/50 dark:via-gray-800 dark:to-gray-900/50 
+                      py-16 overflow-hidden backdrop-blur-sm">
+        <div className="flex flex-col gap-8">
+          {/* First row */}
+          <div className="relative h-[250px] overflow-hidden">
+            <motion.div
+              animate={{
+                x: [0, -2400],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+              className="flex absolute gap-4"
+            >
+              {[...images, ...images, ...images].map((image, index) => (
+                <ImageComponent
+                  key={\`row1-\${index}\`}
+                  src={image}
+                  alt={\`Tech \${index + 1}\`}
+                />
+              ))}
+            </motion.div>
+          </div>
+  
+          {/* Second row - reverse direction */}
+          <div className="relative h-[250px] overflow-hidden">
+            <motion.div
+              animate={{
+                x: [-2400, 0],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+              className="flex absolute gap-4"
+            >
+              {[...images, ...images, ...images].map((image, index) => (
+                <ImageComponent
+                  key={\`row2-\${index}\`}
+                  src={image}
+                  alt={\`Tech \${index + 1}\`}
+                />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+    `,
+  },  
   {
     title: 'Form Examples',
     component: <FormExamples />,
