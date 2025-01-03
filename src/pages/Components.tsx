@@ -1,22 +1,21 @@
-import React from 'react';
-import { ComponentSection } from '../components/ComponentSections';
-import { HeroSections } from '../components/sections/HeroSections';
-import { HeaderExamples } from '../components/sections/HeaderExamples';
-import { PricingTables } from '../components/sections/PricingTables';
-import { GalleryExamples } from '../components/sections/GalleryExamples';
-import { MarqueeText } from '../components/sections/MarqueeText';
-import { MarqueeLogo } from '../components/sections/MarqueeLogo';
-import { MarqueeImages2 } from '../components/sections/MarqueeImages2';
-import { FormExamples } from '../components/sections/FormExamples';
-import { SaasHero } from '../components/sections/SaasHero';
-import { FeatureSection } from '../components/sections/FeatureSection';
-import { FooterNewsletter } from '../components/sections/FooterNewsletter';
-import { FooterApp2 } from '../components/sections/FooterApp2';
-import { FooterMinimal } from '../components/sections/FooterMinimal';
+import { ComponentSection } from "../components/ComponentSections";
+import { HeroSections } from "../components/sections/HeroSections";
+import { HeaderExamples } from "../components/sections/HeaderExamples";
+import { PricingTables } from "../components/sections/PricingTables";
+import { GalleryExamples } from "../components/sections/GalleryExamples";
+import { MarqueeText } from "../components/sections/MarqueeText";
+import { MarqueeLogo } from "../components/sections/MarqueeLogo";
+import { MarqueeImages2 } from "../components/sections/MarqueeImages2";
+import { FormExamples } from "../components/sections/FormExamples";
+import { SaasHero } from "../components/sections/SaasHero";
+import { FeatureSection } from "../components/sections/FeatureSection";
+import { FooterNewsletter } from "../components/sections/FooterNewsletter";
+import { FooterApp2 } from "../components/sections/FooterApp2";
+import { FooterMinimal } from "../components/sections/FooterMinimal";
 
 const components = [
   {
-    title: 'SaaS Hero Section',
+    title: "SaaS Hero Section",
     component: <SaasHero />,
     code: `
     import { motion } from 'framer-motion';
@@ -96,10 +95,10 @@ const components = [
         </section>
       );
     };
-    `
+    `,
   },
   {
-    title: 'Feature Section',
+    title: "Feature Section",
     component: <FeatureSection />,
     code: `
     import React from 'react';
@@ -181,10 +180,10 @@ const components = [
         </section>
       );
     };
-    `
+    `,
   },
   {
-    title: 'Hero Sections',
+    title: "Hero Sections",
     component: <HeroSections />,
     code: `
     import { motion } from "framer-motion";
@@ -337,10 +336,10 @@ const components = [
         </section>
       );
     };
-    `
+    `,
   },
   {
-    title: 'Header Examples',
+    title: "Header Examples",
     component: <HeaderExamples />,
     code: `
     import React from 'react';
@@ -428,10 +427,10 @@ export const HeaderExamples = () => {
       </div>
     </section>
   );
-};`
+};`,
   },
   {
-    title: 'Pricing Tables',
+    title: "Pricing Tables",
     component: <PricingTables />,
     code: `import { motion } from 'framer-motion';
     import { Check } from 'lucide-react';
@@ -525,10 +524,10 @@ export const HeaderExamples = () => {
           </div>
         </section>
       );
-    };`
+    };`,
   },
   {
-    title: 'Gallery Examples',
+    title: "Gallery Examples",
     component: <GalleryExamples />,
     code: `
 "use client";
@@ -649,7 +648,7 @@ function Carousel() {
     `,
   },
   {
-    title: 'Marquee Logo',
+    title: "Marquee Logo",
     component: <MarqueeLogo />,
     code: `
   import React from 'react';
@@ -742,7 +741,7 @@ function Carousel() {
     `,
   },
   {
-    title: 'Marquee Text',
+    title: "Marquee Text",
     component: <MarqueeText />,
     code: `
   import React from 'react';
@@ -791,9 +790,9 @@ function Carousel() {
     );
   };
     `,
-  },  
+  },
   {
-    title: 'Marquee Image Slider',
+    title: "Marquee Image Slider",
     component: <MarqueeImages2 />,
     code: `
   import React from 'react';
@@ -890,9 +889,9 @@ function Carousel() {
     );
   };
     `,
-  },  
+  },
   {
-    title: 'Form Examples',
+    title: "Form Examples",
     component: <FormExamples />,
     code: `
     import React, { useState } from 'react';
@@ -1026,10 +1025,10 @@ export const FormExamples = () => {
     </section>
   );
 };
-    `
+    `,
   },
   {
-    title: 'Footer Newsletter',
+    title: "Footer Newsletter",
     component: <FooterNewsletter />,
     code: `
     import React from 'react';
@@ -1095,10 +1094,10 @@ export const FooterNewsletter = () => {
       </div>
     </footer>
   );
-};`
+};`,
   },
   {
-    title: 'Footer App Style',
+    title: "Footer App Style",
     component: <FooterApp2 />,
     code: `import React from 'react';
     import { motion } from 'framer-motion';
@@ -1159,10 +1158,10 @@ export const FooterNewsletter = () => {
           </div>
         </footer>
       );
-    };`
+    };`,
   },
   {
-    title: 'Footer Minimal',
+    title: "Footer Minimal",
     component: <FooterMinimal />,
     code: `import React from 'react';
     import { motion } from 'framer-motion';
@@ -1213,8 +1212,8 @@ export const FooterNewsletter = () => {
           </div>
         </footer>
       );
-    };`
-  }
+    };`,
+  },
 ];
 
 export const Components = () => {
@@ -1233,11 +1232,7 @@ export const Components = () => {
 
       <div className="container mx-auto px-4 py-16">
         {components.map((item, index) => (
-          <ComponentSection
-            key={index}
-            title={item.title}
-            code={item.code}
-          >
+          <ComponentSection key={index} title={item.title} code={item.code}>
             {item.component}
           </ComponentSection>
         ))}
