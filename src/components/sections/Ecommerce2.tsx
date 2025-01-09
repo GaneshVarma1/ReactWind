@@ -1,3 +1,5 @@
+import { ShoppingCart } from "lucide-react";
+
 const products = [
   {
     id: 1,
@@ -119,8 +121,9 @@ export default function Ecommerce2() {
                   {product.price}
                 </p>
               </div>
-              <button className="mt-4 w-full rounded-md bg-indigo-600 py-2 text-sm font-medium text-white hover:bg-indigo-500">
-                Add to Cart
+              <button className="mt-4 w-full flex items-center justify-center space-x-2 rounded-md bg-indigo-600 py-2 text-sm font-medium text-white hover:bg-indigo-500">
+                <ShoppingCart />
+                <span>Add to Cart</span>
               </button>
             </div>
           ))}

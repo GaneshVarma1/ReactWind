@@ -14,12 +14,15 @@ import { FooterNewsletter } from "../components/sections/FooterNewsletter";
 import { FooterApp2 } from "../components/sections/FooterApp2";
 import { FooterMinimal } from "../components/sections/FooterMinimal";
 import { Pricing3 } from "../components/sections/Pricing3";
+import NewHeader from "../components/sections/NewHeader";
+import NewHeader2 from "../components/sections/NewHeader2";
 import Ecommerce1 from "../components/sections/Ecommerce1";
 import Ecommerce2 from "../components/sections/Ecommerce2";
 import EcommerceSlider from "../components/sections/EcommerceSlider";
 import EcommerceGrid from "../components/sections/EcommerceGrid";
-import MarqueeLogos2 from "../components/sections/MarqueeLogo2";
 import { Pricing3big } from "../components/sections/Pricing3big";
+import HeroSection from "../components/sections/HeroSection";
+import LogoSlider from "../components/sections/LogoTicker";
 
 const components = [
   {
@@ -103,6 +106,136 @@ const components = [
         </section>
       );
     };
+    `,
+  },
+  {
+    title: "SaaS Hero Section",
+    component: <HeroSection />,
+    code: `
+    import React from "react";
+
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center">
+          <p className="w-8 h-8 text-indigo-600">💻</p>
+        </div>
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="#" className="text-gray-600 hover:text-gray-900">
+            Product
+          </a>
+          <a href="#" className="text-gray-600 hover:text-gray-900">
+            Features
+          </a>
+          <a href="#" className="text-gray-600 hover:text-gray-900">
+            Marketplace
+          </a>
+          <a href="#" className="text-gray-600 hover:text-gray-900">
+            Company
+          </a>
+        </div>
+        <div>
+          <a
+            href="#"
+            className="text-indigo-600 hover:text-indigo-700 font-medium"
+          >
+            Log in →
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32 bg-white">
+            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
+              <div className="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
+                {/* Text Content */}
+                <div className="sm:text-center lg:text-left lg:col-span-6 flex flex-col justify-center">
+                  <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                    We're changing the way people connect
+                  </h1>
+                  <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
+                    qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
+                    occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non
+                    deserunt sunt.
+                  </p>
+                  <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                    <div className="rounded-xl shadow">
+                      <a
+                        href="#"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                      >
+                        Get started
+                      </a>
+                    </div>
+                    <div className="mt-3 sm:mt-0 sm:ml-3">
+                      <a
+                        href="#"
+                        className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-gray-700 hover:text-gray-900 md:py-4 md:text-lg md:px-10"
+                      >
+                        Live demo →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Grid */}
+                <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                  <div className="relative mx-auto w-full rounded-lg lg:max-w-md">
+                    <div className="relative grid grid-cols-2 gap-6">
+                      {/* Left Column */}
+                      <div className="space-y-6">
+                        <div className="relative h-64 overflow-hidden rounded-2xl">
+                          <img
+                            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="Team collaboration"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="relative h-80 overflow-hidden rounded-2xl">
+                          <img
+                            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="Office workspace"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Right Column */}
+                      <div className="space-y-6 mt-12">
+                        <div className="relative h-80 overflow-hidden rounded-2xl">
+                          <img
+                            src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="Team meeting"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="relative h-64 overflow-hidden rounded-2xl">
+                          <img
+                            src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2049&q=80"
+                            alt="People working"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+    
     `,
   },
   {
@@ -347,10 +480,195 @@ const components = [
     `,
   },
   {
+    title: "Modren Header",
+    component: <NewHeader />,
+    code: `
+    import React from "react";
+import { motion } from "framer-motion";
+import { Menu, ChevronDown, Moon, Sun, Download } from "lucide-react";
+
+const Header: React.FC = () => {
+  return (
+    <div className="relative">
+      {/* Gradient Border Wrapper */}
+      <div className="p-[0.5px] rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-spin-gradient">
+        <div className="bg-white dark:bg-black backdrop-blur-md rounded-full shadow-lg">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <div className="flex items-center space-x-3">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                  className="flex items-center"
+                ></motion.div>
+                <span className="font-bold text-gray-900 dark:text-white text-xl">
+                  ReactWind
+                </span>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="hidden md:flex space-x-6">
+                {["Resources", "Pricing", "Documentation", "GitHub"].map(
+                  (item) => (
+                    <motion.a
+                      key={item}
+                      href="#"
+                      whileHover={{ scale: 1.1 }}
+                      className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white text-sm transition-all"
+                    >
+                      {item}
+                    </motion.a>
+                  )
+                )}
+              </nav>
+
+              {/* Action Buttons */}
+              <div className="flex items-center space-x-4">
+                {/* Dark/Light Mode Toggle */}
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition"
+                >
+                  <Moon className="dark:hidden w-5 h-5 text-black" />
+                  <Sun className="hidden dark:block w-5 h-5 text-white" />
+                </motion.button>
+
+                {/* Profile Avatar */}
+                <motion.div whileHover={{ scale: 1.1 }}>
+                  <img
+                    src="https://via.placeholder.com/40"
+                    alt="User Avatar"
+                    className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700"
+                  />
+                </motion.div>
+
+                {/* Dropdown Button */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm font-medium shadow-md transition"
+                >
+                  Dashboard
+                  <ChevronDown className="ml-2 w-4 h-4" />
+                </motion.button>
+
+                {/* Hamburger Menu for Mobile */}
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  className="md:hidden p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"
+                >
+                  <Menu className="text-gray-700 dark:text-gray-300 w-5 h-5" />
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Header;    
+    `,
+  },
+  {
+    title: "",
+    component: <NewHeader2 />,
+    code: `
+import React from "react";
+import { motion } from "framer-motion";
+import { Menu, Moon, Sun, CircleUser } from "lucide-react";
+
+const Header: React.FC = () => {
+  return (
+    <div className="relative">
+      {/* Gradient Border Wrapper */}
+      <div className="p-[0.5px] rounded-full bg-gradient-to-r from-white via-white-500 to-gray-500 animate-spin-gradient">
+        <div className="bg-white dark:bg-black backdrop-blur-md rounded-full shadow-lg">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo (Centered) */}
+              <div className="flex-1 flex justify-center">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                  className="flex items-center space-x-2"
+                >
+                  {/* Image */}
+                  <img
+                    src="src/icon.png"
+                    alt="Logo"
+                    className="w-auto h-6 rounded-full border border-gray-300 dark:border-gray-700"
+                  />
+                  {/* Text */}
+                  <span className="font-bold text-gray-900 dark:text-white text-xl">
+                    ReactWind
+                  </span>
+                </motion.div>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="hidden md:flex space-x-6 absolute left-6">
+                {["Resources", "Pricing", "Documentation", "GitHub"].map(
+                  (item) => (
+                    <motion.a
+                      key={item}
+                      href="#"
+                      whileHover={{ scale: 1.1 }}
+                      className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white text-sm transition-all"
+                    >
+                      {item}
+                    </motion.a>
+                  )
+                )}
+              </nav>
+
+              {/* Action Buttons */}
+              <div className="flex items-center space-x-4 absolute right-6">
+                {/* Dark/Light Mode Toggle */}
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition"
+                >
+                  <Moon className="dark:hidden w-5 h-5 text-black" />
+                  <Sun className="hidden dark:block w-5 h-5 text-white" />
+                </motion.button>
+
+                {/* Login Button */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm font-medium shadow-md transition"
+                >
+                  Login
+                  <CircleUser className="ml-2 w-4 h-4" />
+                </motion.button>
+
+                {/* Hamburger Menu for Mobile */}
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  className="md:hidden p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"
+                >
+                  <Menu className="text-gray-700 dark:text-gray-300 w-5 h-5" />
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Header;    
+    `,
+  },
+  {
     title: "Header Examples",
     component: <HeaderExamples />,
     code: `
-    import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, Search, ShoppingCart, User } from 'lucide-react';
 
@@ -436,103 +754,6 @@ export const HeaderExamples = () => {
     </section>
   );
 };`,
-  },
-  {
-    title: "Pricing Tables",
-    component: <PricingTables />,
-    code: `import { motion } from 'framer-motion';
-    import { Check } from 'lucide-react';
-    
-    export const PricingTables = () => {
-      return (
-        <section className="py-16" id="pricing">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">Pricing Tables</h2>
-    
-            {/* Modern Pricing Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {/* Basic Plan */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
-              >
-                <h3 className="text-lg font-semibold mb-4">Basic</h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold">$9</span>
-                  <span className="text-gray-600 dark:text-gray-400">/month</span>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  {['5 Projects', '10GB Storage', 'Basic Support'].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <Check className="w-5 h-5 text-green-500" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-                  Get Started
-                </button>
-              </motion.div>
-    
-              {/* Pro Plan */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-primary-600 text-white rounded-xl shadow-lg p-8 relative"
-              >
-                <div className="absolute -top-4 right-4 bg-secondary-500 text-white text-sm font-medium px-3 py-1 rounded-full">
-                  Popular
-                </div>
-                <h3 className="text-lg font-semibold mb-4">Pro</h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold">$29</span>
-                  <span className="text-primary-200">/month</span>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  {['15 Projects', '50GB Storage', 'Priority Support', 'Advanced Features'].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <Check className="w-5 h-5 text-primary-300" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full py-3 px-4 bg-white text-primary-600 rounded-lg font-medium hover:bg-primary-50 transition-colors">
-                  Get Started
-                </button>
-              </motion.div>
-    
-              {/* Enterprise Plan */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
-              >
-                <h3 className="text-lg font-semibold mb-4">Enterprise</h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold">$99</span>
-                  <span className="text-gray-600 dark:text-gray-400">/month</span>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  {['Unlimited Projects', 'Unlimited Storage', '24/7 Support', 'Custom Features'].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <Check className="w-5 h-5 text-green-500" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-                  Contact Sales
-                </button>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      );
-    };`,
   },
   {
     title: "2 Blocks Pricing",
@@ -1294,6 +1515,103 @@ export const HeaderExamples = () => {
     
     
     `,
+  },
+  {
+    title: "Pricing Tables",
+    component: <PricingTables />,
+    code: `import { motion } from 'framer-motion';
+    import { Check } from 'lucide-react';
+    
+    export const PricingTables = () => {
+      return (
+        <section className="py-16" id="pricing">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8">Pricing Tables</h2>
+    
+            {/* Modern Pricing Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {/* Basic Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
+              >
+                <h3 className="text-lg font-semibold mb-4">Basic</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">$9</span>
+                  <span className="text-gray-600 dark:text-gray-400">/month</span>
+                </div>
+                <ul className="space-y-4 mb-8">
+                  {['5 Projects', '10GB Storage', 'Basic Support'].map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="w-full py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                  Get Started
+                </button>
+              </motion.div>
+    
+              {/* Pro Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-primary-600 text-white rounded-xl shadow-lg p-8 relative"
+              >
+                <div className="absolute -top-4 right-4 bg-secondary-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+                  Popular
+                </div>
+                <h3 className="text-lg font-semibold mb-4">Pro</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">$29</span>
+                  <span className="text-primary-200">/month</span>
+                </div>
+                <ul className="space-y-4 mb-8">
+                  {['15 Projects', '50GB Storage', 'Priority Support', 'Advanced Features'].map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Check className="w-5 h-5 text-primary-300" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="w-full py-3 px-4 bg-white text-primary-600 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+                  Get Started
+                </button>
+              </motion.div>
+    
+              {/* Enterprise Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
+              >
+                <h3 className="text-lg font-semibold mb-4">Enterprise</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">$99</span>
+                  <span className="text-gray-600 dark:text-gray-400">/month</span>
+                </div>
+                <ul className="space-y-4 mb-8">
+                  {['Unlimited Projects', 'Unlimited Storage', '24/7 Support', 'Custom Features'].map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="w-full py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                  Contact Sales
+                </button>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      );
+    };`,
   },
   {
     title: "E Commerce with Button",
@@ -2097,184 +2415,88 @@ function Carousel() {
 }
     `,
   },
+
   {
-    title: "Logo Slider 2",
-    component: <MarqueeLogos2 />,
-    code: `type LogoProps = {
-      src: string;
-      alt: string;
-    };
-    
-    function Logo({ src, alt }: LogoProps) {
-      return <img src={src} alt={alt} className="max-h-12 w-auto object-contain" />;
-    }
-    
-    export default function OppositeDirectionSliders() {
-      return (
-        <div className="bg-white py-24 sm:py-32 overflow-hidden">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-center text-lg font-semibold text-gray-900 mb-10">
-              Trusted by thousands of users
-            </h2>
-            {/* Slider 1: Left to Right */}
-            <div className="relative flex overflow-hidden">
-              <div className="flex space-x-8 animate-marquee">
+    title: "SaaS Hero Section",
+    component: <LogoSlider />,
+    code: `
+  type LogoProps = {
+    src: string;
+    alt: string;
+  };
+  
+  function Logo({ src, alt }: LogoProps) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="max-h-12 w-auto object-contain dark:invert dark:brightness-0 dark:contrast-200"
+      />
+    );
+  }
+  
+  export default function LogoSlider() {
+    const logos = [
+      "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg",
+      "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg",
+      "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg",
+      "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg",
+      "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg",
+    ];
+  
+    return (
+      <div className="bg-white dark:bg-gray-900 py-24 sm:py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-lg font-semibold text-gray-900 dark:text-white mb-10">
+            Trusted by
+          </h2>
+  
+          {/* Slider 1: Left to Right */}
+          <div className="relative flex overflow-hidden">
+            <div className="flex space-x-8 animate-marquee">
+              {logos.map((src, index) => (
                 <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
+                  key={\`slider1-\${index}\`}
+                  src={src}
+                  alt={\`Logo \${index + 1}\`}
                 />
+              ))}
+              {logos.map((src, index) => (
                 <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
+                  key={\`slider1-repeat-\${index}\`}
+                  src={src}
+                  alt={\`Logo \${index + 1}\`}
                 />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-              </div>
+              ))}
             </div>
-    
-            {/* Slider 2: Right to Left */}
-            <div className="relative flex overflow-hidden mt-10">
-              <div className="flex space-x-8 animate-marquee-reverse">
+          </div>
+  
+          {/* Slider 2: Right to Left */}
+          <div className="relative flex overflow-hidden mt-10">
+            <div className="flex space-x-8 animate-marquee-reverse">
+              {logos.map((src, index) => (
                 <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
+                  key={\`slider2-\${index}\`}
+                  src={src}
+                  alt={\`Logo \${index + 1}\`}
                 />
+              ))}
+              {logos.map((src, index) => (
                 <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
+                  key={\`slider2-repeat-\${index}\`}
+                  src={src}
+                  alt={\`Logo \${index + 1}\`}
                 />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-                  alt="Transistor"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-                  alt="Reform"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-                  alt="Tuple"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-                  alt="SavvyCal"
-                />
-                <Logo
-                  src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-                  alt="Statamic"
-                />
-              </div>
+              ))}
             </div>
           </div>
         </div>
-      );
-    }
-    
-    
-    `,
+      </div>
+    );
+  }
+      `,
   },
+
   {
     title: "Marquee Logo",
     component: <MarqueeLogo />,

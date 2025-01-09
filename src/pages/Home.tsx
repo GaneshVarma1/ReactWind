@@ -1,28 +1,28 @@
-import React from 'react';
-import { Hero } from '../components/Hero';
-import { motion } from 'framer-motion';
-import { Star, Users, Code2, Zap } from 'lucide-react';
+import React from "react";
+import { Hero } from "../components/Hero";
+import { motion } from "framer-motion";
+import { Star, Users, Code2, Zap } from "lucide-react";
 
 const features = [
   {
     icon: <Star className="w-6 h-6 text-yellow-500" />,
-    title: 'Production Ready',
-    description: 'Thoroughly tested components ready for your next project',
+    title: "Production Ready",
+    description: "Thoroughly tested components ready for your next project",
   },
   {
     icon: <Users className="w-6 h-6 text-blue-500" />,
-    title: 'Community Driven',
-    description: 'Built with feedback from developers like you',
+    title: "Community Driven",
+    description: "Built with feedback from developers like you",
   },
   {
     icon: <Code2 className="w-6 h-6 text-purple-500" />,
-    title: 'Fully Customizable',
-    description: 'Easily modify components to match your brand',
+    title: "Fully Customizable",
+    description: "Easily modify components to match your brand",
   },
   {
     icon: <Zap className="w-6 h-6 text-green-500" />,
-    title: 'Fast & Lightweight',
-    description: 'Optimized for performance and small bundle size',
+    title: "Fast & Lightweight",
+    description: "Optimized for performance and small bundle size",
   },
 ];
 
@@ -30,7 +30,6 @@ export const Home = () => {
   return (
     <div>
       <Hero />
-
       {/* Feature Section */}
       <section className="py-24 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
@@ -63,8 +62,8 @@ export const Home = () => {
 
       {/* Full Width Help and Support Section */}
       <div className="w-full bg-gradient-to-r bg-gray-50 dark:bg-gray-800 py-12">
-           <div className="max-w-screen-lg mx-auto px-6">
-             <div className="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md">
+        <div className="max-w-screen-lg mx-auto px-6">
+          <div className="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md">
             {/* Need Help Section */}
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
@@ -100,7 +99,9 @@ export const Home = () => {
                 Support Our Project
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
-                Your contributions help us create more components like this and keep the website alive. Support us to motivate developers and expand the project! Leave a Heart{' '}❤️
+                Your contributions help us create more components like this and
+                keep the website alive. Support us to motivate developers and
+                expand the project! Leave a Heart ❤️
               </p>
               <div className="flex gap-4">
                 <a
