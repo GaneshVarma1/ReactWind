@@ -25,6 +25,11 @@ import HeroSection from "../components/sections/HeroSection";
 import LogoSlider from "../components/sections/LogoTicker";
 
 const components = [
+  // {
+  //   title: "SaaS Hero Section",
+  //   component: <BorderBeam />,
+  //   code: ``,
+  // },
   {
     title: "SaaS Hero Section",
     component: <SaasHero />,

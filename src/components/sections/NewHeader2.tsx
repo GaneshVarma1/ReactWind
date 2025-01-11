@@ -12,22 +12,12 @@ const Header: React.FC = () => {
             <div className="flex items-center justify-between h-16">
               {/* Logo (Centered) */}
               <div className="flex-1 flex justify-center">
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 1 }}
-                  className="flex items-center space-x-2"
-                >
-                  {/* Image */}
-                  <img
-                    src="src/icon.png"
-                    alt="Logo"
-                    className="w-auto h-6 rounded-full border border-gray-300 dark:border-gray-700"
-                  />
-                  {/* Text */}
-                  <span className="font-bold text-gray-900 dark:text-white text-xl">
-                    ReactWind
-                  </span>
-                </motion.div>
+                {/* Image */}
+                <img src="src/icon.png" alt="Logo" className="w-auto h-6" />
+                {/* Text */}
+                <span className="font-bold text-gray-900 dark:text-white text-xl">
+                  ReactWind
+                </span>
               </div>
 
               {/* Navigation Links */}
