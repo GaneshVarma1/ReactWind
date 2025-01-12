@@ -41,7 +41,7 @@ const App: React.FC = () => {
                 {/* Text Content */}
                 <div className="sm:text-center lg:text-left lg:col-span-6 flex flex-col justify-center">
                   <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
-                    We're changing the way people connect
+                    We're changing the way people connect.
                   </h1>
                   <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                     Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure

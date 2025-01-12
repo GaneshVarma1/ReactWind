@@ -18,10 +18,13 @@ export const HeroSections = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <h1 className="text-5xl font-bold mb-6">
-                    Build faster with<br />premium components
+                    Build faster with
+                    <br />
+                    premium components
                   </h1>
                   <p className="text-xl opacity-90 mb-8">
-                    Beautiful, responsive React components for your next project.
+                    Beautiful, responsive React components for your next
+                    project.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <button className="px-8 py-3 bg-white text-primary-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
@@ -62,13 +65,18 @@ export const HeroSections = () => {
               >
                 <div className="flex items-center justify-center gap-2 mb-6">
                   <Star className="text-yellow-400" />
-                  <span className="text-sm font-medium">Rated 4.9/5 from over 1000+ reviews</span>
+                  <span className="text-sm font-medium">
+                    Rated 4.9/5 from over 1000+ reviews
+                  </span>
                 </div>
                 <h1 className="text-5xl font-bold mb-6">
-                  The fastest way to build<br />modern applications
+                  The fastest way to build
+                  <br />
+                  modern applications
                 </h1>
                 <p className="text-xl opacity-90 mb-8">
-                  Ship your next project faster with our production-ready components.
+                  Ship your next project faster with our production-ready
+                  components.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <button className="px-8 py-3 bg-primary-500 rounded-lg font-semibold hover:bg-primary-600 transition-colors inline-flex items-center gap-2">
@@ -94,11 +102,13 @@ export const HeroSections = () => {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="text-4xl lg:text-5xl font-bold  !text-gray-900 leading-tight mb-6">
-                    We’re changing the way people <span className="!text-blue-500">Connect</span>
+                  We’re changing the way people{" "}
+                  <span className="!text-blue-500">Connect</span>
                 </h1>
                 <p className="text-black text-lg mb-8">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-                  cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
+                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
+                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
+                  occaecat.
                 </p>
                 {/* Buttons */}
                 <div className="flex space-x-4">

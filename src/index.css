@@ -1,4 +1,4 @@
-@import './styles/darkMode.css';
+@import "./styles/darkMode.css";
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +20,7 @@
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
   }
-  
+
   .hover-card {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
@@ -31,6 +31,16 @@
       rgba(var(--gradient-color), 0.15),
       transparent 40%
     );
+  }
+  .hiring-badge {
+    background: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.1) 0%,
+      rgba(124, 58, 237, 0.2) 100%
+    );
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    animation: pulse 2s infinite;
   }
 
   .fancy-button {
