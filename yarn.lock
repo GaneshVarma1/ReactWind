@@ -618,6 +618,11 @@
     "@typescript-eslint/types" "8.18.1"
     eslint-visitor-keys "^4.2.0"
 
+"@vercel/analytics@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/@vercel/analytics/-/analytics-1.4.1.tgz"
+  integrity sha512-ekpL4ReX2TH3LnrRZTUKjHHNpNy9S1I7QmS+g/RQXoSUQ8ienzosuX7T9djZ/s8zPhBx1mpHP/Rw5875N+zQIQ==
+
 "@vitejs/plugin-react@^4.3.1":
   version "4.3.4"
   resolved "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.3.4.tgz"

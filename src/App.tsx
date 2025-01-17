@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Header } from "./components/Header";
 import { FooterMinimal } from "./components/Footer/FooterMinimal";
 import { Home } from "./pages/Home";
@@ -31,6 +32,7 @@ function App() {
           </Routes>
         </main>
         <FooterMinimal />
+        <Analytics />
       </div>
     </Router>
   );
