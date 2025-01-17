@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header';
-import { FooterMinimal } from './components/Footer/FooterMinimal';
-import { Home } from './pages/Home';
-import { Components } from './pages/Components';
-import { Documentation } from './pages/Documentation';
-import { Error404 } from './pages/Error404';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { FooterMinimal } from "./components/Footer/FooterMinimal";
+import { Home } from "./pages/Home";
+import { Components } from "./pages/Components";
+import { Documentation } from "./pages/Documentation";
+import { Error404 } from "./pages/Error404";
 
 function App() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
