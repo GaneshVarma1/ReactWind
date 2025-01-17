@@ -77,7 +77,7 @@ export const Home = () => {
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/buildeasy/components"
+                  href="https://github.com/GaneshVarma1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
@@ -105,7 +105,7 @@ export const Home = () => {
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/buildeasy/components#contribute"
+                  href="https://github.com/GaneshVarma1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"

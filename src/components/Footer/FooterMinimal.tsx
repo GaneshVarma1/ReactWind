@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { Github, Instagram, Linkedin, Heart } from 'lucide-react';
-import { Logo } from '../Header/Logo';
+import { motion } from "framer-motion";
+import { Github, Instagram, Linkedin, Heart } from "lucide-react";
+import { Logo } from "../Header/Logo";
 
 export const FooterMinimal = () => {
   return (
@@ -9,17 +9,16 @@ export const FooterMinimal = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center space-x-2">
             <Logo />
-            <span
-             className="text-sm text-gray-600 dark:text-gray-400">
-            Made with <Heart className="inline w-4 h-4 text-red-500" /> by {' '}
-            <a 
-              href="https://linkedin.com/in/sriganeshshiramshetty" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-blue-500 hover:underline dark:text-blue-400"
-            >
-            Sri Shiramshetty
-            </a>
+            <span className="text-sm text-gray-600 dark:text-gray-400">
+              Made with <Heart className="inline w-4 h-4 text-red-500" /> by{" "}
+              <a
+                href="https://bit.ly/sriport"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline dark:text-blue-400"
+              >
+                Sri Shiramshetty
+              </a>
             </span>
           </div>
           <div className="flex items-center space-x-4">

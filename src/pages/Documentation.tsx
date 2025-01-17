@@ -1,16 +1,15 @@
-import { motion } from 'framer-motion';
-import React from 'react';
-import Lottie from 'lottie-react';
-import { Book, Code2, Palette, Zap, Layout, Heart } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Book, Code2, Palette, Zap, Layout } from "lucide-react";
+import { CodeBlock } from "../components/CodeBlock";
 
 export const Documentation = () => {
   const sections = [
     {
-      title: 'Getting Started 🚀',
+      title: "Getting Started 🚀",
       icon: <Zap className="w-6 h-6 text-primary-500" />,
       items: [
         {
-          title: 'Copy Code & Install Packages',
+          title: "Copy Code & Install Packages",
           description: (
             <>
               <p className="mb-2">
@@ -18,62 +17,61 @@ export const Documentation = () => {
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-md text-sm">
                 <p className="font-semibold mb-1">1. Install Lottie Files:</p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install lottie-react</code>
-                </pre>
-                <p className="mt-3 font-semibold mb-1">2. Install Lucid Icons:</p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install lucide-react</code>
-                </pre>
-                <p className="mt-3 font-semibold mb-1">3. Install TailwindCSS:</p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>
-                    {`npm install -D tailwindcss 
-postcss autoprefixer
-npx tailwindcss init`}
-                  </code>
-                </pre>
-                <p className="mt-3 font-semibold mb-1">4. Install Framer Motion:</p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install framer-motion</code>
-                </pre>
+                <CodeBlock code="npm install lottie-react" />
+
+                <p className="mt-3 font-semibold mb-1">
+                  2. Install Lucid Icons:
+                </p>
+                <CodeBlock code="npm install lucide-react" />
+
+                <p className="mt-3 font-semibold mb-1">
+                  3. Install TailwindCSS:
+                </p>
+                <CodeBlock
+                  code={`npm install -D tailwindcss\npostcss autoprefixer\nnpx tailwindcss init`}
+                />
+
+                <p className="mt-3 font-semibold mb-1">
+                  4. Install Framer Motion:
+                </p>
+                <CodeBlock code="npm install framer-motion" />
               </div>
             </>
           ),
         },
-        { title: 'Make React Easy' },
-        { title: 'Easy Project Structure' },
+        { title: "Make React Easy" },
+        { title: "Easy Project Structure" },
       ],
     },
     {
-      title: 'Components Available 🎨',
+      title: "Components Available 🎨",
       icon: <Layout className="w-6 h-6 text-primary-500" />,
       items: [
-        { title: 'Hero Sections' },
-        { title: 'Headers' },
-        { title: 'Footers' },
-        { title: 'Pricing Tables' },
-        { title: 'Galleries' },
-        { title: 'Marquee Sliders' },
-        { title: 'More Coming Soon...' },
+        { title: "Hero Sections" },
+        { title: "Headers" },
+        { title: "Footers" },
+        { title: "Pricing Tables" },
+        { title: "Galleries" },
+        { title: "Marquee Sliders" },
+        { title: "More Coming Soon..." },
       ],
     },
     {
-      title: 'Customization 💅',
+      title: "Customization 💅",
       icon: <Palette className="w-6 h-6 text-primary-500" />,
       items: [
-        { title: 'Theming' },
-        { title: 'Dark Mode' },
-        { title: 'Styling' },
+        { title: "Theming" },
+        { title: "Dark Mode" },
+        { title: "Styling" },
       ],
     },
     {
-      title: 'API Reference 📚',
+      title: "API Reference 📚",
       icon: <Book className="w-6 h-6 text-primary-500" />,
       items: [
-        { title: 'Component Props' },
-        { title: 'Hooks' },
-        { title: 'Utilities' },
+        { title: "Component Props" },
+        { title: "Hooks" },
+        { title: "Utilities" },
       ],
     },
   ];
@@ -114,9 +112,7 @@ npx tailwindcss init`}
                 <ul className="space-y-2">
                   {section.items.map((item, idx) => (
                     <li key={idx}>
-                      <a
-                        className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                      >
+                      <a className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                         {item.title}
                       </a>
                       {item.description && (
@@ -141,7 +137,7 @@ npx tailwindcss init`}
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/buildeasy/components"
+                href="https://github.com/GaneshVarma1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
@@ -167,7 +163,7 @@ npx tailwindcss init`}
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/buildeasy/components#contribute"
+                  href="https://github.com/GaneshVarma1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
