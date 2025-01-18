@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Book, Code2, Palette, Zap, Layout } from "lucide-react";
+import { CodeBlock } from "../components/CodeBlock";
 
 export const Documentation = () => {
   const sections = [
@@ -16,31 +17,21 @@ export const Documentation = () => {
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-md text-sm">
                 <p className="font-semibold mb-1">1. Install Lottie Files:</p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install lottie-react</code>
-                </pre>
+                <CodeBlock code="npm install lottie-react" />
                 <p className="mt-3 font-semibold mb-1">
                   2. Install Lucid Icons:
                 </p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install lucide-react</code>
-                </pre>
+                <CodeBlock code="npm install lucide-react" />
                 <p className="mt-3 font-semibold mb-1">
                   3. Install TailwindCSS:
                 </p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>
-                    {`npm install -D tailwindcss 
-postcss autoprefixer
-npx tailwindcss init`}
-                  </code>
-                </pre>
+                <CodeBlock
+                  code={`npm install -D tailwindcss\npostcss autoprefixer\nnpx tailwindcss init`}
+                />
                 <p className="mt-3 font-semibold mb-1">
                   4. Install Framer Motion:
                 </p>
-                <pre className="bg-gray-200 dark:bg-gray-700 p-3 rounded-md">
-                  <code>npm install framer-motion</code>
-                </pre>
+                <CodeBlock code="npm install framer-motion" />
               </div>
             </>
           ),
