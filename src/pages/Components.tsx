@@ -54,7 +54,7 @@ import { useState, useEffect } from "react";
 
 const components = [
   {
-    title: "Hero Saas With Mockup",
+    title: "Hero Saas With Image",
     component: <HeroSaas />,
     code: HeroSaasSource,
   },

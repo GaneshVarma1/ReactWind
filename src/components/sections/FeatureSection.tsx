@@ -1,27 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
-import { Shield, Zap, BarChart } from 'lucide-react';
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import { Shield, Zap, BarChart } from "lucide-react";
 
 // Import the local Lottie JSON
-import featureAnimationData from '../../assets/bike.json';
+import featureAnimationData from "../../assets/bike.json";
 
 export const FeatureSection = () => {
   const features = [
     {
       icon: <Shield className="w-6 h-6 text-primary-500" />,
-      title: 'Enterprise Security',
-      description: 'Bank-grade security with end-to-end encryption and compliance.',
+      title: "Enterprise Security",
+      description:
+        "Bank-grade security with end-to-end encryption and compliance.",
     },
     {
       icon: <Zap className="w-6 h-6 text-primary-500" />,
-      title: 'Lightning Fast',
-      description: 'Optimized performance with sub-second response times.',
+      title: "Lightning Fast",
+      description: "Optimized performance with sub-second response times.",
     },
     {
       icon: <BarChart className="w-6 h-6 text-primary-500" />,
-      title: 'Advanced Analytics',
-      description: 'Deep insights with customizable dashboards and reports.',
+      title: "Advanced Analytics",
+      description: "Deep insights with customizable dashboards and reports.",
     },
   ];
 
@@ -55,7 +55,9 @@ export const FeatureSection = () => {
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+              <p className="text-gray-600 dark:text-gray-300">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -67,10 +69,10 @@ export const FeatureSection = () => {
           className="relative max-w-4xl mx-auto"
         >
           <div className="relative">
-          <Lottie
-             animationData={featureAnimationData}
-              style={{ width: '300px', height: '300px', margin: '0 auto' }}
-          />
+            <Lottie
+              animationData={featureAnimationData}
+              style={{ width: "300px", height: "300px", margin: "0 auto" }}
+            />
           </div>
         </motion.div>
       </div>
