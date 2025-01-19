@@ -1,20 +1,20 @@
-import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 // Import Lottie JSON locally
-import analyticsAnimationLight from '../../assets/saas.json';
-import analyticsAnimationDark from '../../assets/saasdark.json';
+import analyticsAnimationLight from "../../assets/saas.json";
+import analyticsAnimationDark from "../../assets/saasdark.json";
 
 export const SaasHero = () => {
   const features = [
-    'Real-time analytics dashboard',
-    'Team collaboration tools',
-    'Advanced reporting features',
+    "Real-time analytics dashboard",
+    "Team collaboration tools",
+    "Advanced reporting features",
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section className="py-24 bg-gradient-to-br from-primary-100/80 via-white to-secondary-100/80 dark:from-gray-950 dark:via-gray-900/90 dark:to-gray-800 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side Content */}
@@ -27,17 +27,20 @@ export const SaasHero = () => {
               New Features Available
             </span>
             <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Transform Your Business with{' '}
+              Transform Your Business with{" "}
               <span className="gradient-text">Advanced Analytics</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Get actionable insights and make data-driven decisions with our powerful analytics platform.
+              Get actionable insights and make data-driven decisions with our
+              powerful analytics platform.
             </p>
             <ul className="space-y-4 mb-8">
               {features.map((feature) => (
                 <li key={feature} className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {feature}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -67,12 +70,18 @@ export const SaasHero = () => {
             <div className="relative">
               {/* Light mode Lottie */}
               <div className="block dark:hidden">
-                <Lottie animationData={analyticsAnimationLight} className="w-full h-auto" />
+                <Lottie
+                  animationData={analyticsAnimationLight}
+                  className="w-full h-auto"
+                />
               </div>
 
               {/* Dark mode Lottie */}
               <div className="hidden dark:block">
-                <Lottie animationData={analyticsAnimationDark} className="w-full h-auto" />
+                <Lottie
+                  animationData={analyticsAnimationDark}
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </motion.div>
