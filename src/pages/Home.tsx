@@ -1,4 +1,3 @@
-import React from "react";
 import { Hero } from "../components/Hero";
 import { motion } from "framer-motion";
 import { Star, Users, Code2, Zap } from "lucide-react";
