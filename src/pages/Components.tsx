@@ -49,6 +49,8 @@ import HeroSectionsSource from "../components/sections/HeroSections.tsx?raw";
 import PricingTablesSource from "../components/sections/PricingTables.tsx?raw";
 import Pricing2Source from "../components/sections/Pricing2.tsx?raw";
 import FormExamplesSource from "../components/sections/FormExamples.tsx?raw";
+import { ComponentSidebar } from "../components/ComponentSidebar";
+import { useState, useEffect } from "react";
 
 const components = [
   {
@@ -174,25 +176,63 @@ const components = [
 ];
 
 export const Components = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+            setActiveSection(
+              entry.target.id
+                .split("-")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")
+            );
+          }
+        });
+      },
+      {
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+        rootMargin: "-100px 0px -300px 0px",
+      }
+    );
+
+    components.forEach((component) => {
+      const element = document.getElementById(
+        component.title.replace(/\s+/g, "-").toLowerCase()
+      );
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <section className="py-16 bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
-            Component Library
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 text-center mb-16">
-            Browse our collection of beautiful React components
-          </p>
-        </div>
-      </section>
+      <ComponentSidebar components={components} activeSection={activeSection} />
 
-      <div className="container mx-auto px-4 py-16">
-        {components.map((item, index) => (
-          <ComponentSection key={index} title={item.title} code={item.code}>
-            {item.component}
-          </ComponentSection>
-        ))}
+      <div className="lg:ml-64">
+        <section className="py-16 bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-800">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
+              Component Library
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 text-center mb-16">
+              Browse our collection of beautiful React components
+            </p>
+          </div>
+        </section>
+
+        <div className="container mx-auto px-4 py-16">
+          {components.map((item, index) => (
+            <div key={index} id={item.title.replace(/\s+/g, "-").toLowerCase()}>
+              <ComponentSection title={item.title} code={item.code}>
+                {item.component}
+              </ComponentSection>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

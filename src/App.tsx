@@ -7,6 +7,7 @@ import { Components } from "./pages/Components";
 import { Documentation } from "./pages/Documentation";
 import { Error404 } from "./pages/Error404";
 import { useEffect } from "react";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         </main>
         <FooterMinimal />
         <Analytics />
+        <ScrollToTop />
       </div>
     </Router>
   );
