@@ -9,6 +9,7 @@ import GridGallery from "../components/sections/GridGallery";
 import { GalleryExamples } from "../components/sections/GalleryExamples";
 import { MarqueeText } from "../components/sections/MarqueeText";
 import { MarqueeLogo } from "../components/sections/MarqueeLogo";
+import { HeroImages } from "../components/sections/HeroImages";
 import { MarqueeImages2 } from "../components/sections/MarqueeImages2";
 import LogoSlider from "../components/sections/LogoTicker";
 import Ecommerce1 from "../components/sections/Ecommerce1";
@@ -27,6 +28,7 @@ import { FormExamples } from "../components/sections/FormExamples";
 // Import raw source code for all components
 import HeroSaasSource from "../components/sections/HeroSaas.tsx?raw";
 import SaasHeroSource from "../components/sections/SaasHero.tsx?raw";
+import HeroImagesSource from "../components/sections/HeroImages.tsx?raw";
 import HeroSectionSource from "../components/sections/HeroSection.tsx?raw";
 import FeatureSectionSource from "../components/sections/FeatureSection.tsx?raw";
 import Pricing3Source from "../components/sections/Pricing3.tsx?raw";
@@ -59,15 +61,21 @@ const components = [
     code: HeroSaasSource,
   },
   {
-    title: "SaaS Hero Section",
-    component: <SaasHero />,
-    code: SaasHeroSource,
-  },
-  {
     title: "Hero Section",
     component: <HeroSection />,
     code: HeroSectionSource,
   },
+  {
+    title: "Hero Images",
+    component: <HeroImages />,
+    code: HeroImagesSource,
+  },
+  {
+    title: "SaaS Hero Section",
+    component: <SaasHero />,
+    code: SaasHeroSource,
+  },
+
   {
     title: "Hero Sections",
     component: <HeroSections />,

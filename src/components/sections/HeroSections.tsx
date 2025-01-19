@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import { Button } from "../ui/button";
 
 export const HeroSections = () => {
   return (
@@ -27,12 +28,12 @@ export const HeroSections = () => {
                     project.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <button className="px-8 py-3 bg-white text-primary-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
+                    <Button size="lg" className="gap-4" variant="whiteOutline">
                       Get Started
-                    </button>
-                    <button className="px-8 py-3 border border-white rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-colors">
-                      Learn More
-                    </button>
+                    </Button>
+                    <Button size="lg" className="gap-4" variant="default">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Button>
                   </div>
                 </motion.div>
                 <motion.div
