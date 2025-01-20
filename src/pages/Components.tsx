@@ -56,17 +56,17 @@ import { useState, useEffect } from "react";
 
 const components = [
   {
-    title: "Hero Saas With Image",
+    title: "Hero With Image",
     component: <HeroSaas />,
     code: HeroSaasSource,
   },
   {
-    title: "Hero Section",
+    title: "Hero With Grid Images",
     component: <HeroSection />,
     code: HeroSectionSource,
   },
   {
-    title: "Hero Images",
+    title: "Hero With Images ",
     component: <HeroImages />,
     code: HeroImagesSource,
   },
@@ -102,7 +102,7 @@ const components = [
     code: Pricing3Source,
   },
   {
-    title: "Pricing 3 Big",
+    title: "Pricing 3 Detailed",
     component: <Pricing3big />,
     code: Pricing3bigSource,
   },
