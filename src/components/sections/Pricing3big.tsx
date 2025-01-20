@@ -151,7 +151,7 @@ export const Pricing3big = () => {
 
   return (
     <div className="isolate overflow-hidden">
-      <div className="flow-root bg-gray-900 dark:bg-gray-800 pb-16 pt-24 sm:pt-32 lg:pb-0">
+      <div className="flow-root bg-gray-900 dark:bg-gray-900 pb-16 pt-24 sm:pt-32 lg:pb-0">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="relative z-10">
             <h2 className="mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight text-white dark:text-gray-100">
