@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 interface SidebarProps {
@@ -62,11 +62,11 @@ export const ComponentSidebar = ({
           <span className="text-gray-700 dark:text-gray-200">
             {activeComponent?.title || "Select Component"}
           </span>
-          <ChevronDown
-            className={`w-5 h-5 transition-transform ${
-              isOpen ? "transform rotate-180" : ""
-            }`}
-          />
+          {isOpen ? (
+            <ArrowLeft className="w-5 h-5 transition-transform" />
+          ) : (
+            <ArrowRight className="w-5 h-5 transition-transform" />
+          )}
         </button>
 
         {isOpen && (
@@ -74,6 +74,7 @@ export const ComponentSidebar = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 mt-2 mx-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-[60vh] overflow-y-auto"
           >
             {components.map((component) => (

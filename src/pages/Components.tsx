@@ -23,6 +23,7 @@ import { FooterMinimal } from "../components/sections/FooterMinimal";
 import { HeroSections } from "../components/sections/HeroSections";
 import { PricingTables } from "../components/sections/PricingTables";
 import { Pricing2 } from "../components/sections/Pricing2";
+import { HeroVideo } from "../components/sections/HeroVideo";
 import { FormExamples } from "../components/sections/FormExamples";
 
 // Import raw source code for all components
@@ -50,11 +51,17 @@ import FooterMinimalSource from "../components/sections/FooterMinimal.tsx?raw";
 import HeroSectionsSource from "../components/sections/HeroSections.tsx?raw";
 import PricingTablesSource from "../components/sections/PricingTables.tsx?raw";
 import Pricing2Source from "../components/sections/Pricing2.tsx?raw";
+import HeroVideoSource from "../components/sections/HeroVideo.tsx?raw";
 import FormExamplesSource from "../components/sections/FormExamples.tsx?raw";
 import { ComponentSidebar } from "../components/ComponentSidebar";
 import { useState, useEffect } from "react";
 
 const components = [
+  {
+    title: "Hero Video",
+    component: <HeroVideo />,
+    code: HeroVideoSource,
+  },
   {
     title: "Hero With Image",
     component: <HeroSaas />,
@@ -185,6 +192,7 @@ const components = [
 
 export const Components = () => {
   const [activeSection, setActiveSection] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -218,11 +226,48 @@ export const Components = () => {
 
   return (
     <div className="min-h-screen">
-      <ComponentSidebar components={components} activeSection={activeSection} />
+      {/* Sidebar with toggle */}
+      <div className="fixed top-0 left-0 h-full z-40">
+        <div
+          className={`
+            fixed top-0 left-0 h-full w-64 bg-background border-r shadow-lg
+            transform transition-transform duration-300 ease-in-out
+            ${sidebarOpen ? "translate-x-0" : "-translate-x-64"}
+          `}
+        >
+          <ComponentSidebar
+            components={components}
+            activeSection={activeSection}
+          />
+        </div>
 
-      <div className="lg:ml-64">
+        {/* Toggle Button on the edge of sidebar */}
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className={`
+            absolute top-1/2 -translate-y-1/2
+            ${sidebarOpen ? "left-64" : "left-0"}
+            w-6 h-24 bg-background border-y border-r rounded-r-md
+            flex items-center justify-center
+            transition-all duration-300 hover:bg-accent
+            shadow-md
+          `}
+        >
+          <span className="absolute transform -rotate-90 whitespace-nowrap text-xs">
+            {sidebarOpen ? "Close Menu" : "Open Menu"}
+          </span>
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div
+        className={`
+          transition-all duration-300 ease-in-out
+          ${sidebarOpen ? "lg:ml-64" : "lg:ml-0"}
+        `}
+      >
         <section className="py-16 bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-800">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-2">
             <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
               Component Library
             </h1>
