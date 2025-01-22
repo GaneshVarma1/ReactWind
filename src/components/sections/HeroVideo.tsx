@@ -43,10 +43,12 @@ function HeroVideo() {
             <div>
               <Badge
                 variant="outline"
-                className="flex items-center gap-2 bg-white dark:bg-gray-900 w-fit"
+                className="flex items-center gap-2 bg-white dark:bg-gray-900 w-fit hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
               >
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                We&apos;re Hiring!
+                <a href="/" className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  We&apos;re Hiring!
+                </a>
               </Badge>
             </div>
             <div className="flex gap-4 flex-col">
