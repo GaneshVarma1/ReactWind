@@ -24,11 +24,13 @@ import { HeroSections } from "../components/sections/HeroSections";
 import { PricingTables } from "../components/sections/PricingTables";
 import { Pricing2 } from "../components/sections/Pricing2";
 import { HeroVideo } from "../components/sections/HeroVideo";
+import FeaturesImage from "../components/sections/FeaturesImage";
 import { FormExamples } from "../components/sections/FormExamples";
 
 // Import raw source code for all components
 import HeroSaasSource from "../components/sections/HeroSaas.tsx?raw";
 import SaasHeroSource from "../components/sections/SaasHero.tsx?raw";
+import FeaturesImageSource from "../components/sections/FeaturesImage.tsx?raw";
 import HeroImagesSource from "../components/sections/HeroImages.tsx?raw";
 import HeroSectionSource from "../components/sections/HeroSection.tsx?raw";
 import FeatureSectionSource from "../components/sections/FeatureSection.tsx?raw";
@@ -49,6 +51,7 @@ import FooterNewsletterSource from "../components/sections/FooterNewsletter.tsx?
 import FooterApp2Source from "../components/sections/FooterApp2.tsx?raw";
 import FooterMinimalSource from "../components/sections/FooterMinimal.tsx?raw";
 import HeroSectionsSource from "../components/sections/HeroSections.tsx?raw";
+import AnimatedBeamSource from "../components/ui/animated-beam.tsx?raw";
 import PricingTablesSource from "../components/sections/PricingTables.tsx?raw";
 import Pricing2Source from "../components/sections/Pricing2.tsx?raw";
 import HeroVideoSource from "../components/sections/HeroVideo.tsx?raw";
@@ -87,6 +90,15 @@ const components = [
     title: "Hero Sections",
     component: <HeroSections />,
     code: HeroSectionsSource,
+  },
+  {
+    title: "Features Image",
+    component: <FeaturesImage />,
+    code: `// FeaturesImage.tsx
+${FeaturesImageSource}
+
+// animated-beam.tsx
+${AnimatedBeamSource}`,
   },
   {
     title: "Feature Section",

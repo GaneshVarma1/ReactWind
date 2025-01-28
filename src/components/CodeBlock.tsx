@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface CodeBlockProps {
   code: string;
@@ -8,37 +10,49 @@ interface CodeBlockProps {
 export const CodeBlock = ({ code }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text:", err);
-    }
+  // Split code into separate files if multiple files are present
+  const files = code.split(/\/\/ [a-zA-Z-]+\.tsx/).filter(Boolean);
+  const fileNames = code.match(/\/\/ [a-zA-Z-]+\.tsx/g) || [];
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="relative">
-      <button
-        onClick={handleCopy}
-        className="absolute right-2 top-2 flex items-center gap-2 px-2 py-1 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors"
-      >
-        {copied ? (
-          <>
-            <Check className="w-3 h-3 text-green-500" />
-            <span className="text-xs text-green-500">Copied!</span>
-          </>
-        ) : (
-          <>
-            <Copy className="w-3 h-3 text-gray-400" />
-            <span className="text-xs text-gray-400">Copy</span>
-          </>
-        )}
-      </button>
-      <pre className="bg-gray-200 dark:bg-gray-700 p-3 pt-10 rounded-md">
-        <code>{code}</code>
-      </pre>
+      {files.map((fileCode, index) => (
+        <div key={index} className="mb-4">
+          {fileNames[index] && (
+            <div className="bg-gray-800 text-gray-200 px-4 py-2 rounded-t-lg">
+              {fileNames[index].replace("// ", "")}
+            </div>
+          )}
+          <div className="relative">
+            <button
+              onClick={copyToClipboard}
+              className="absolute right-2 top-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-green-500" />
+              ) : (
+                <Copy className="w-4 h-4 text-gray-400" />
+              )}
+            </button>
+            <SyntaxHighlighter
+              language="typescript"
+              style={oneDark}
+              customStyle={{
+                margin: 0,
+                borderRadius: fileNames[index] ? "0 0 0.5rem 0.5rem" : "0.5rem",
+              }}
+            >
+              {fileCode.trim()}
+            </SyntaxHighlighter>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
