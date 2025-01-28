@@ -14,7 +14,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 border-border bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] dark:bg-black",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 border-border bg-white dark:border-gray-600 p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className
       )}
     >
@@ -33,13 +33,13 @@ const FeaturedSection = () => {
   const mainIconRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="py-12 bg-gray-50">
+    <div className="py-12 bg-gray-50 dark:bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center mb-16">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+          <h2 className="text-base text-indigo-600 font-bold tracking-wide uppercase">
             Deploy faster
           </h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-black sm:text-4xl">
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             A better workflow
           </p>
         </div>
@@ -59,7 +59,7 @@ const FeaturedSection = () => {
               <div className="flex w-full items-stretch justify-between gap-10">
                 {/* Features Column */}
                 <div className="flex flex-col gap-8">
-                  <Circle ref={feature1Ref} className="bg-white dark:bg-white">
+                  <Circle ref={feature1Ref}>
                     <Rocket className="h-6 w-6" />
                   </Circle>
                   <Circle ref={feature2Ref}>
@@ -125,7 +125,7 @@ const FeaturedSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-black">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   Push to deploy
                 </h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -142,7 +142,7 @@ const FeaturedSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-black">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   Enterprise Security
                 </h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -159,7 +159,7 @@ const FeaturedSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-black">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   Database Backups
                 </h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
