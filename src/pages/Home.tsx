@@ -30,7 +30,6 @@ export const Home = () => {
   return (
     <div>
       <Hero />
-      {/* Feature Section */}
       <section className="py-24 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -59,9 +58,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Full Width Help and Support Section */}
-
       <div className="w-full bg-gradient-to-r bg-gray-50 dark:bg-gray-800 py-12">
         <div className="max-w-screen-lg mx-auto px-6">
           <BackgroundGradient>
