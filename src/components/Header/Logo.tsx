@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom";
+
 export const Logo = () => {
   return (
-    <a
-      href="/"
-      rel="noopener noreferrer"
-      className="flex items-center space-x-2 text-primary-600 dark:text-primary-400"
-    >
-    <span className="text-xl font-bold">ReactWind</span>
-    </a>
+    <Link to="/" className="flex items-center gap-2">
+      <span className="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+        ReactWind
+      </span>
+    </Link>
   );
 };

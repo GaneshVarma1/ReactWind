@@ -8,6 +8,7 @@ import { Documentation } from "./pages/Documentation";
 import { Error404 } from "./pages/Error404";
 import { useEffect } from "react";
 import { ScrollToTop } from "./components/ScrollToTop";
+// import CustomCursor from './components/CustomCursor';  // if it exists
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,8 @@ function App() {
         <FooterMinimal />
         <Analytics />
         <ScrollToTop />
+        {/* Remove or comment out the cursor component if it exists */}
+        {/* <CustomCursor /> */}
       </div>
     </Router>
   );

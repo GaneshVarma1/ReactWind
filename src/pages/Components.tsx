@@ -1,4 +1,4 @@
-import { ComponentSection } from "../components/ComponentSections";
+import { ComponentSection } from "../components/ComponentSection";
 import HeroSaas from "../components/sections/HeroSaas";
 import { SaasHero } from "../components/sections/SaasHero";
 import HeroSection from "../components/sections/HeroSection";
@@ -26,6 +26,8 @@ import { Pricing2 } from "../components/sections/Pricing2";
 import { HeroVideo } from "../components/sections/HeroVideo";
 import FeaturesImage from "../components/sections/FeaturesImage";
 import { FormExamples } from "../components/sections/FormExamples";
+import { ComponentThemeProvider, useComponentTheme } from '../context/ComponentThemeContext';
+import { Sun, Moon } from 'lucide-react';
 
 // Import raw source code for all components
 import HeroSaasSource from "../components/sections/HeroSaas.tsx?raw";
@@ -58,6 +60,7 @@ import HeroVideoSource from "../components/sections/HeroVideo.tsx?raw";
 import FormExamplesSource from "../components/sections/FormExamples.tsx?raw";
 import { ComponentSidebar } from "../components/ComponentSidebar";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const components = [
   {
@@ -202,7 +205,25 @@ ${AnimatedBeamSource}`,
   },
 ];
 
-export const Components = () => {
+const ThemeSwitch = () => {
+  const { theme, toggleTheme } = useComponentTheme();
+  
+  return (
+    <button
+      onClick={toggleTheme}
+      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+    >
+      {theme === 'dark' ? (
+        <Sun className="w-5 h-5 text-yellow-400" />
+      ) : (
+        <Moon className="w-5 h-5 text-gray-300" />
+      )}
+    </button>
+  );
+};
+
+const ComponentsContent = () => {
+  const { theme } = useComponentTheme();
   const [activeSection, setActiveSection] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -237,35 +258,44 @@ export const Components = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      {/* Sidebar with toggle */}
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#0B0F17]' : 'bg-white'}`}>
+      <ThemeSwitch />
+      {/* Background Effects */}
+      <div className={`fixed inset-0 ${
+        theme === 'dark' ? 'bg-[#0B0F17]/90' : 'bg-white/90'
+      } backdrop-blur-3xl`} />
+
+      {/* Sidebar */}
       <div className="fixed top-0 left-0 h-full z-40">
-        <div
-          className={`
-            fixed top-0 left-0 h-full w-64 bg-background border-r shadow-lg
-            transform transition-transform duration-300 ease-in-out
-            ${sidebarOpen ? "translate-x-0" : "-translate-x-64"}
-          `}
-        >
+        <div className={`
+          fixed top-0 left-0 h-full w-64 
+          ${theme === 'dark' ? 'bg-[#0B0F17]/50' : 'bg-white/50'} 
+          backdrop-blur-xl
+          border-r ${theme === 'dark' ? 'border-gray-800/50' : 'border-gray-200/50'} 
+          shadow-lg
+          transform transition-transform duration-300 ease-in-out
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-64"}
+        `}>
           <ComponentSidebar
             components={components}
             activeSection={activeSection}
           />
         </div>
 
-        {/* Toggle Button on the edge of sidebar */}
+        {/* Toggle Button */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className={`
             absolute top-1/2 -translate-y-1/2
             ${sidebarOpen ? "left-64" : "left-0"}
-            w-6 h-24 bg-background border-y border-r rounded-r-md
+            w-6 h-24 bg-[#0B0F17]/50 backdrop-blur-xl
+            border-y border-r border-gray-800/50 rounded-r-xl
             flex items-center justify-center
-            transition-all duration-300 hover:bg-accent
-            shadow-md
+            transition-all duration-300 hover:bg-gray-800/50
+            shadow-lg
           `}
         >
-          <span className="absolute transform -rotate-90 whitespace-nowrap text-xs">
+          <span className="absolute transform -rotate-90 whitespace-nowrap text-xs text-gray-300">
             {sidebarOpen ? "Close Menu" : "Open Menu"}
           </span>
         </button>
@@ -274,31 +304,59 @@ export const Components = () => {
       {/* Main Content */}
       <div
         className={`
-          transition-all duration-300 ease-in-out
+          relative transition-all duration-300 ease-in-out z-10
           ${sidebarOpen ? "lg:ml-64" : "lg:ml-0"}
         `}
       >
-        <section className="py-16 bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-800">
-          <div className="container mx-auto px-2">
-            <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
-              Component Library
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 text-center mb-16">
-              Browse our collection of beautiful React components
-            </p>
+        {/* Hero Section */}
+        <section className="relative py-16">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-400/10 to-secondary-400/10" />
+          <div className="container mx-auto px-4 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Component Library
+              </h1>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                Browse our collection of beautiful React components
+              </p>
+            </motion.div>
           </div>
         </section>
 
+        {/* Components Grid */}
         <div className="container mx-auto px-4 py-16">
-          {components.map((item, index) => (
-            <div key={index} id={item.title.replace(/\s+/g, "-").toLowerCase()}>
-              <ComponentSection title={item.title} code={item.code}>
-                {item.component}
-              </ComponentSection>
-            </div>
-          ))}
+          <div className="space-y-32">
+            {components.map((item, index) => (
+              <motion.div
+                key={index}
+                id={item.title.replace(/\s+/g, "-").toLowerCase()}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400/5 to-secondary-400/5 rounded-3xl -m-8" />
+                <ComponentSection title={item.title} code={item.code}>
+                  {item.component}
+                </ComponentSection>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
+  );
+};
+
+export const Components = () => {
+  return (
+    <ComponentThemeProvider>
+      <ComponentsContent />
+    </ComponentThemeProvider>
   );
 };
