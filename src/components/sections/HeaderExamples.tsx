@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+
 import { Menu, Search, ShoppingCart, User } from 'lucide-react';
 
 export const HeaderExamples = () => {

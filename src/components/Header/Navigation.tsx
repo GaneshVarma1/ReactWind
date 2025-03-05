@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { NavItem } from '../../types';
 
 const navItems: NavItem[] = [
-  { title: 'Home', href: '/' },
   { title: 'Components', href: '/components' },
   { title: 'Documentation', href: '/docs' },
   { title: 'GitHub', href: 'https://github.com/GaneshVarma1' },
