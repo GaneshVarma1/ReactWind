@@ -3,20 +3,39 @@ import { useFrame } from "@react-three/fiber";
 import { Mesh, Color, AdditiveBlending, DoubleSide } from "three";
 import { Float, Stars, Trail, Sparkles } from "@react-three/drei";
 
-const Planet = ({ radius, orbitRadius, orbitSpeed, color, ringColor, hasRings = false, glowColor, trailColor }: any) => {
+const Planet = ({
+  radius,
+  orbitRadius,
+  orbitSpeed,
+  color,
+  ringColor,
+  hasRings = false,
+  glowColor,
+  trailColor,
+}: {
+  radius: number;
+  orbitRadius: number;
+  orbitSpeed: number;
+  color: string;
+  ringColor: string;
+  hasRings: boolean;
+  glowColor: string;
+  trailColor: string;
+}) => {
   const meshRef = useRef<Mesh>(null);
   const ringRef = useRef<Mesh>(null);
-  
+
   useFrame(({ clock }) => {
     if (!meshRef.current) return;
     const t = clock.getElapsedTime();
-    
+
     // More dynamic orbital movement
     meshRef.current.position.x = Math.cos(t * orbitSpeed) * orbitRadius;
     meshRef.current.position.z = Math.sin(t * orbitSpeed) * orbitRadius;
-    meshRef.current.position.y = Math.sin(t * orbitSpeed * 0.5) * (orbitRadius * 0.1);
+    meshRef.current.position.y =
+      Math.sin(t * orbitSpeed * 0.5) * (orbitRadius * 0.1);
     meshRef.current.rotation.y += 0.01;
-    
+
     if (ringRef.current && hasRings) {
       ringRef.current.position.copy(meshRef.current.position);
       ringRef.current.rotation.x = Math.PI / 3;
@@ -35,7 +54,7 @@ const Planet = ({ radius, orbitRadius, orbitSpeed, color, ringColor, hasRings = 
           emissive={color}
           emissiveIntensity={0.2}
         />
-        
+
         {/* Atmosphere glow */}
         <Sparkles
           count={20}
@@ -45,7 +64,7 @@ const Planet = ({ radius, orbitRadius, orbitSpeed, color, ringColor, hasRings = 
           color={glowColor}
           opacity={0.2}
         />
-        
+
         {/* Orbital trail */}
         <Trail
           width={2}
@@ -55,7 +74,7 @@ const Planet = ({ radius, orbitRadius, orbitSpeed, color, ringColor, hasRings = 
           stride={0}
         />
       </mesh>
-      
+
       {hasRings && (
         <mesh ref={ringRef}>
           <ringGeometry args={[radius * 1.4, radius * 2.2, 128]} />
@@ -77,7 +96,7 @@ const Planet = ({ radius, orbitRadius, orbitSpeed, color, ringColor, hasRings = 
           />
         </mesh>
       )}
-      
+
       {/* Orbit line */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[orbitRadius, orbitRadius + 0.05, 180]} />
@@ -107,11 +126,11 @@ export const FloatingCrystal = () => {
 
   return (
     <>
-      <Stars 
-        radius={100} 
-        depth={50} 
-        count={7000} 
-        factor={4} 
+      <Stars
+        radius={100}
+        depth={50}
+        count={7000}
+        factor={4}
         saturation={0.5}
         fade
         speed={1}
@@ -120,23 +139,22 @@ export const FloatingCrystal = () => {
       {/* Sun with enhanced glow */}
       <mesh ref={sunRef}>
         <sphereGeometry args={[2.5, 64, 64]} />
-        <meshBasicMaterial
-          color="#ffa726"
-          toneMapped={false}
-        />
+        <meshBasicMaterial color="#ffa726" toneMapped={false} />
         <Sparkles
-          count={80}
+          count={40}
           scale={8}
           size={1.5}
-          speed={0.3}
+          speed={0.1}
           color="#ffcc80"
+          opacity={0.5}
         />
         <Sparkles
-          count={50}
+          count={30}
           scale={6}
           size={1}
-          speed={0.2}
+          speed={0.05}
           color="#fff3e0"
+          opacity={0.3}
         />
       </mesh>
 
@@ -148,8 +166,10 @@ export const FloatingCrystal = () => {
         color="#9e9e9e"
         glowColor="#757575"
         trailColor="#616161"
+        ringColor="#9e9e9e"
+        hasRings={false}
       />
-      
+
       {/* Venus - Bright and hot */}
       <Planet
         radius={0.6}
@@ -158,8 +178,10 @@ export const FloatingCrystal = () => {
         color="#ffab91"
         glowColor="#ff8a65"
         trailColor="#ff7043"
+        ringColor="#ffab91"
+        hasRings={false}
       />
-      
+
       {/* Earth - Blue and vibrant */}
       <Planet
         radius={0.7}
@@ -168,8 +190,10 @@ export const FloatingCrystal = () => {
         color="#4fc3f7"
         glowColor="#29b6f6"
         trailColor="#03a9f4"
+        ringColor="#4fc3f7"
+        hasRings={false}
       />
-      
+
       {/* Mars - Red planet */}
       <Planet
         radius={0.5}
@@ -178,8 +202,10 @@ export const FloatingCrystal = () => {
         color="#ef5350"
         glowColor="#e53935"
         trailColor="#d32f2f"
+        ringColor="#ef5350"
+        hasRings={false}
       />
-      
+
       {/* Jupiter - Gas giant with rings */}
       <Planet
         radius={1.4}
@@ -191,7 +217,7 @@ export const FloatingCrystal = () => {
         hasRings={true}
         ringColor="#fff176"
       />
-      
+
       {/* Saturn - Ringed planet */}
       <Planet
         radius={1.2}
@@ -205,4 +231,4 @@ export const FloatingCrystal = () => {
       />
     </>
   );
-}; 
+};

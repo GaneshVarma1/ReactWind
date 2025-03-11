@@ -26,8 +26,18 @@ import { Pricing2 } from "../components/sections/Pricing2";
 import { HeroVideo } from "../components/sections/HeroVideo";
 import FeaturesImage from "../components/sections/FeaturesImage";
 import { FormExamples } from "../components/sections/FormExamples";
-import { ComponentThemeProvider, useComponentTheme } from '../context/ComponentThemeContext';
-import { Sun, Moon } from 'lucide-react';
+import {
+  ComponentThemeProvider,
+  useComponentTheme,
+} from "../context/ComponentThemeContext";
+import { Sun, Moon } from "lucide-react";
+import { ThreeDCardDemo } from "../components/sections/ThreeDCard";
+import { SparklesPreview } from "../components/sections/SparklesText";
+import { CardHoverEffect } from "../components/sections/CardHoverEffect";
+import { WavyBackground } from "../components/sections/WavyBackground";
+import { GradientBlob } from "../components/sections/GradientBlob";
+import { ParticleField } from "../components/sections/ParticleField";
+import { NebulaBackground } from "../components/sections/NebulaBackground";
 
 // Import raw source code for all components
 import HeroSaasSource from "../components/sections/HeroSaas.tsx?raw";
@@ -61,8 +71,16 @@ import FormExamplesSource from "../components/sections/FormExamples.tsx?raw";
 import { ComponentSidebar } from "../components/ComponentSidebar";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ThreeDCardSource from "../components/sections/ThreeDCard.tsx?raw";
+import SparklesPreviewSource from "../components/sections/SparklesText.tsx?raw";
+import CardHoverEffectSource from "../components/sections/CardHoverEffect.tsx?raw";
+import WavyBackgroundSource from "../components/sections/WavyBackground.tsx?raw";
+import GradientBlobSource from "../components/sections/GradientBlob.tsx?raw";
+import ParticleFieldSource from "../components/sections/ParticleField.tsx?raw";
+import NebulaBackgroundSource from "../components/sections/NebulaBackground.tsx?raw";
 
 const components = [
+  // Hero Sections
   {
     title: "Hero Video",
     component: <HeroVideo />,
@@ -79,7 +97,7 @@ const components = [
     code: HeroSectionSource,
   },
   {
-    title: "Hero With Images ",
+    title: "Hero With Images",
     component: <HeroImages />,
     code: HeroImagesSource,
   },
@@ -88,12 +106,59 @@ const components = [
     component: <SaasHero />,
     code: SaasHeroSource,
   },
-
   {
     title: "Hero Sections",
     component: <HeroSections />,
     code: HeroSectionsSource,
   },
+
+  // Background Effects (NEW)
+  {
+    title: "Nebula Background",
+    component: <NebulaBackground />,
+    code: NebulaBackgroundSource,
+    isNew: true,
+  },
+  {
+    title: "Gradient Blobs",
+    component: <GradientBlob />,
+    code: GradientBlobSource,
+    isNew: true,
+  },
+  {
+    title: "Particle Field",
+    component: <ParticleField />,
+    code: ParticleFieldSource,
+    isNew: true,
+  },
+  {
+    title: "Wavy Background",
+    component: <WavyBackground />,
+    code: WavyBackgroundSource,
+    isNew: true,
+  },
+
+  // Cards & Interactive Elements (NEW)
+  {
+    title: "3D Hover Cards",
+    component: <ThreeDCardDemo />,
+    code: ThreeDCardSource,
+    isNew: true,
+  },
+  {
+    title: "Card Hover Effects",
+    component: <CardHoverEffect />,
+    code: CardHoverEffectSource,
+    isNew: true,
+  },
+  {
+    title: "Sparkles Text Effect",
+    component: <SparklesPreview />,
+    code: SparklesPreviewSource,
+    isNew: true,
+  },
+
+  // Feature Sections
   {
     title: "Features Image",
     component: <FeaturesImage />,
@@ -108,6 +173,8 @@ ${AnimatedBeamSource}`,
     component: <FeatureSection />,
     code: FeatureSectionSource,
   },
+
+  // Pricing Sections
   {
     title: "Pricing Tables",
     component: <PricingTables />,
@@ -128,6 +195,8 @@ ${AnimatedBeamSource}`,
     component: <Pricing3big />,
     code: Pricing3bigSource,
   },
+
+  // Gallery & Media
   {
     title: "Grid Gallery",
     component: <GridGallery />,
@@ -138,6 +207,8 @@ ${AnimatedBeamSource}`,
     component: <GalleryExamples />,
     code: GalleryExamplesSource,
   },
+
+  // Marquee & Sliders
   {
     title: "Marquee Text",
     component: <MarqueeText />,
@@ -158,6 +229,8 @@ ${AnimatedBeamSource}`,
     component: <LogoSlider />,
     code: LogoSliderSource,
   },
+
+  // E-commerce Components
   {
     title: "Simple E-commerce",
     component: <Ecommerce1 />,
@@ -178,6 +251,8 @@ ${AnimatedBeamSource}`,
     component: <EcommerceGrid />,
     code: EcommerceGridSource,
   },
+
+  // Headers & Footers
   {
     title: "Header Examples",
     component: <HeaderExamples />,
@@ -198,6 +273,8 @@ ${AnimatedBeamSource}`,
     component: <FooterMinimal />,
     code: FooterMinimalSource,
   },
+
+  // Forms
   {
     title: "Form Examples",
     component: <FormExamples />,
@@ -207,13 +284,13 @@ ${AnimatedBeamSource}`,
 
 const ThemeSwitch = () => {
   const { theme, toggleTheme } = useComponentTheme();
-  
+
   return (
     <button
       onClick={toggleTheme}
       className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
     >
-      {theme === 'dark' ? (
+      {theme === "dark" ? (
         <Sun className="w-5 h-5 text-yellow-400" />
       ) : (
         <Moon className="w-5 h-5 text-gray-300" />
@@ -258,24 +335,34 @@ const ComponentsContent = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#0B0F17]' : 'bg-white'}`}>
+    <div
+      className={`min-h-screen ${
+        theme === "dark" ? "bg-[#0B0F17]" : "bg-white"
+      }`}
+    >
       <ThemeSwitch />
       {/* Background Effects */}
-      <div className={`fixed inset-0 ${
-        theme === 'dark' ? 'bg-[#0B0F17]/90' : 'bg-white/90'
-      } backdrop-blur-3xl`} />
+      <div
+        className={`fixed inset-0 ${
+          theme === "dark" ? "bg-[#0B0F17]/90" : "bg-white/90"
+        } backdrop-blur-3xl`}
+      />
 
       {/* Sidebar */}
       <div className="fixed top-0 left-0 h-full z-40">
-        <div className={`
+        <div
+          className={`
           fixed top-0 left-0 h-full w-64 
-          ${theme === 'dark' ? 'bg-[#0B0F17]/50' : 'bg-white/50'} 
+          ${theme === "dark" ? "bg-[#0B0F17]/50" : "bg-white/50"} 
           backdrop-blur-xl
-          border-r ${theme === 'dark' ? 'border-gray-800/50' : 'border-gray-200/50'} 
+          border-r ${
+            theme === "dark" ? "border-gray-800/50" : "border-gray-200/50"
+          } 
           shadow-lg
           transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-64"}
-        `}>
+        `}
+        >
           <ComponentSidebar
             components={components}
             activeSection={activeSection}
@@ -342,6 +429,11 @@ const ComponentsContent = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-400/5 to-secondary-400/5 rounded-3xl -m-8" />
                 <ComponentSection title={item.title} code={item.code}>
+                  {item.isNew && (
+                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
+                      NEW
+                    </span>
+                  )}
                   {item.component}
                 </ComponentSection>
               </motion.div>

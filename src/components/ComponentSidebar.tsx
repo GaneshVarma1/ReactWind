@@ -1,9 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FC } from "react";
 
-interface SidebarProps {
-  components: { title: string }[];
+interface ComponentSidebarProps {
+  components: Array<{
+    title: string;
+    isNew?: boolean;
+  }>;
   activeSection: string;
 }
 
@@ -41,10 +44,10 @@ const scrollbarStyles = `
   }
 `;
 
-export const ComponentSidebar = ({
+export const ComponentSidebar: FC<ComponentSidebarProps> = ({
   components,
   activeSection,
-}: SidebarProps) => {
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const activeButtonRef = useRef<HTMLButtonElement>(null);
@@ -88,9 +91,9 @@ export const ComponentSidebar = ({
   return (
     <>
       <style>{scrollbarStyles}</style>
-      
+
       {/* Mobile Dropdown */}
-      <motion.div 
+      <motion.div
         initial={false}
         className="lg:hidden fixed top-[72px] left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg p-4 border-b border-gray-200 dark:border-gray-800"
       >
@@ -123,7 +126,8 @@ export const ComponentSidebar = ({
                   key={component.title}
                   onClick={() => scrollToSection(component.title)}
                   className={`w-full text-left px-4 py-3 transition-all duration-200 ${
-                    normalizeTitle(activeSection) === normalizeTitle(component.title)
+                    normalizeTitle(activeSection) ===
+                    normalizeTitle(component.title)
                       ? "bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 font-medium"
                       : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
                   }`}
@@ -154,20 +158,27 @@ export const ComponentSidebar = ({
             <motion.button
               key={component.title}
               ref={
-                normalizeTitle(activeSection) === normalizeTitle(component.title)
+                normalizeTitle(activeSection) ===
+                normalizeTitle(component.title)
                   ? activeButtonRef
                   : null
               }
               onClick={() => scrollToSection(component.title)}
-              className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 ${
-                normalizeTitle(activeSection) === normalizeTitle(component.title)
+              className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 flex items-center justify-between ${
+                normalizeTitle(activeSection) ===
+                normalizeTitle(component.title)
                   ? "bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 font-medium shadow-sm"
                   : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
               }`}
               whileHover={{ x: 4, scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
             >
-              {component.title}
+              <span>{component.title}</span>
+              {component.isNew && (
+                <span className="px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800/30 dark:text-green-400 rounded-full">
+                  NEW
+                </span>
+              )}
             </motion.button>
           ))}
         </nav>

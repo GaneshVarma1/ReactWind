@@ -1,13 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Player } from '@lottiefiles/react-lottie-player';
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <div 
+    <div
       className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 
                  dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
@@ -24,12 +23,13 @@ export const Hero = () => {
               <span className="gradient-text"> Made Easy ✨</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Production-ready components for your next React project. Free, open-source, and fully customizable. 🚀
+              Production-ready components for your next React project. Free,
+              open-source, and fully customizable. 🚀
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/components')}
+              onClick={() => navigate("/components")}
               className="fancy-button px-8 py-4 shadow-lg"
             >
               Get Free Components 🎁
@@ -47,7 +47,12 @@ export const Hero = () => {
                 autoplay
                 loop
                 src="https://lottie.host/0d5addb9-d995-446b-b38f-c6bfe79abd1e/lwlERW6itQ.json"
-                style={{ width: '100%', height: 'auto', maxWidth: '600px', margin: '0 auto' }}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxWidth: "600px",
+                  margin: "0 auto",
+                }}
                 className="dark:brightness-90"
               />
             </div>
