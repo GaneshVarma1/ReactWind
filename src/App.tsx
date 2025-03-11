@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { ScrollToTop } from "./components/ScrollToTop";
 // import CustomCursor from './components/CustomCursor';  // if it exists
 
-function App() {
+export const App = () => {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
@@ -41,6 +41,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

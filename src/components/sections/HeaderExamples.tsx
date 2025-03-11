@@ -1,5 +1,4 @@
-
-import { Menu, Search, ShoppingCart, User } from 'lucide-react';
+import { Menu, Search, ShoppingCart, User } from "lucide-react";
 
 export const HeaderExamples = () => {
   return (
@@ -13,15 +12,26 @@ export const HeaderExamples = () => {
             <div className="container mx-auto">
               <div className="flex items-center h-16 px-4">
                 <div className="flex items-center flex-1">
-                  <span className="text-xl font-bold text-primary-600">SRI</span>
+                  <span className="text-xl font-bold text-primary-600">
+                    SRI
+                  </span>
                   <nav className="hidden md:flex ml-8 space-x-4">
-                    <a href="#" className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                    >
                       Home
                     </a>
-                    <a href="#" className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                    >
                       Products
                     </a>
-                    <a href="#" className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                    >
                       About
                     </a>
                   </nav>
@@ -53,7 +63,9 @@ export const HeaderExamples = () => {
             <div className="container mx-auto">
               <div className="flex flex-col">
                 <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-700">
-                  <span className="text-xl font-bold text-primary-600">Yamazon</span>
+                  <span className="text-xl font-bold text-primary-600">
+                    Yamazon
+                  </span>
                   <div className="flex items-center space-x-4">
                     <button className="p-2 text-gray-600 hover:text-primary-600">
                       <Search className="h-5 w-5" />
@@ -70,10 +82,30 @@ export const HeaderExamples = () => {
                   </div>
                 </div>
                 <nav className="flex items-center justify-center h-12 space-x-8">
-                  <a href="#" className="text-gray-600 hover:text-primary-600 text-sm font-medium">New</a>
-                  <a href="#" className="text-gray-600 hover:text-primary-600 text-sm font-medium">Women</a>
-                  <a href="#" className="text-gray-600 hover:text-primary-600 text-sm font-medium">Men</a>
-                  <a href="#" className="text-gray-600 hover:text-primary-600 text-sm font-medium">Sale</a>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-primary-600 text-sm font-medium"
+                  >
+                    New
+                  </a>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-primary-600 text-sm font-medium"
+                  >
+                    Women
+                  </a>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-primary-600 text-sm font-medium"
+                  >
+                    Men
+                  </a>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-primary-600 text-sm font-medium"
+                  >
+                    Sale
+                  </a>
                 </nav>
               </div>
             </div>

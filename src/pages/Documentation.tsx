@@ -1,5 +1,14 @@
 import { motion } from "framer-motion";
-import { Book, Code2, Palette, Zap, Layout, Github, Coffee, ExternalLink } from "lucide-react";
+import {
+  Book,
+  Code2,
+  Palette,
+  Zap,
+  Layout,
+  Github,
+  Coffee,
+  ExternalLink,
+} from "lucide-react";
 
 interface SectionItem {
   title: string;
@@ -17,14 +26,13 @@ export const Documentation = () => {
   const sections: Section[] = [
     {
       title: "Getting Started",
-      icon: <Zap className="w-6 h-6 text-primary-500" />,
-      gradient: "from-blue-500/20 to-purple-500/20",
+      icon: <Zap className="w-6 h-6 text-blue-400" />,
       items: [
         {
           title: "Quick Setup",
           description: (
             <>
-              <p className="mb-4 text-gray-600 dark:text-gray-300">
+              <p className="mb-4 text-gray-300">
                 Get your project up and running with these essential packages:
               </p>
               <div className="space-y-4">
@@ -52,7 +60,7 @@ export const Documentation = () => {
     },
     {
       title: "Components Available 🎨",
-      icon: <Layout className="w-6 h-6 text-primary-500" />,
+      icon: <Layout className="w-6 h-6 text-purple-400" />,
       items: [
         { title: "Hero Sections" },
         { title: "Headers" },
@@ -65,7 +73,7 @@ export const Documentation = () => {
     },
     {
       title: "Customization 💅",
-      icon: <Palette className="w-6 h-6 text-primary-500" />,
+      icon: <Palette className="w-6 h-6 text-cyan-400" />,
       items: [
         { title: "Theming" },
         { title: "Dark Mode" },
@@ -74,7 +82,7 @@ export const Documentation = () => {
     },
     {
       title: "API Reference 📚",
-      icon: <Book className="w-6 h-6 text-primary-500" />,
+      icon: <Book className="w-6 h-6 text-indigo-400" />,
       items: [
         { title: "Component Props" },
         { title: "Hooks" },
@@ -84,39 +92,50 @@ export const Documentation = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dot-pattern">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-grid-white/[0.02] bg-grid-pattern" />
+    <div className="min-h-screen bg-black overflow-hidden">
+      {/* Enhanced Space Theme Background Effects */}
       <div className="fixed inset-0">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/10 dark:bg-primary-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary-500/10 dark:bg-secondary-400/10 rounded-full blur-3xl" />
+        {/* Animated stars background */}
+        <div className="absolute inset-0 bg-[url('/stars.png')] bg-repeat opacity-30" />
+
+        {/* Nebula-like gradients - adjusted for better contrast on black */}
+        <div className="absolute top-0 -left-4 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-0 -right-4 w-[600px] h-[600px] bg-gradient-to-l from-indigo-500/10 to-pink-500/10 rounded-full blur-[120px] animate-pulse delay-1000" />
+
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:50px_50px]" />
       </div>
-      <div className="fixed inset-0 bg-white/80 dark:bg-gray-950/90 backdrop-blur-3xl" />
 
       <div className="relative z-10">
-        {/* Hero Section - Matching Components page style */}
-        <section className="relative py-16">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-secondary-500/5 dark:from-primary-400/10 dark:to-secondary-400/10" />
+        {/* Enhanced Hero Section */}
+        <section className="relative py-24">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-purple-500/5 to-transparent" />
           <div className="container mx-auto px-4 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center"
+              className="text-center space-y-6"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+              <div className="flex justify-center mb-6">
+                <div className="p-3 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10">
+                  <Book className="w-12 h-12 text-blue-400" />
+                </div>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
                 Documentation
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Everything you need to build amazing React applications
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Explore our comprehensive guide to building stunning React
+                applications with our component library
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Main Content */}
+        {/* Enhanced Main Content */}
         <div className="container mx-auto px-4 py-16">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {sections.map((section, index) => (
                 <motion.div
@@ -126,13 +145,14 @@ export const Documentation = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative group"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r ${section.gradient} rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300`} />
-                  <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-gray-800/50 h-full">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-xl bg-gray-50 dark:bg-gray-800">
+                  {/* Enhanced card background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                  <div className="relative bg-black/80 backdrop-blur-xl rounded-3xl p-8 border border-blue-500/20 h-full hover:border-blue-500/30 transition-colors">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="p-3 rounded-xl bg-blue-950/30 border border-blue-500/20">
                         {section.icon}
                       </div>
-                      <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                      <h2 className="text-2xl font-semibold text-white">
                         {section.title}
                       </h2>
                     </div>
@@ -142,11 +162,11 @@ export const Documentation = () => {
                           {item.description ? (
                             <div className="space-y-4">{item.description}</div>
                           ) : (
-                            <a className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                              <span className="text-gray-600 dark:text-gray-300 group-hover/item:text-primary-500 transition-colors">
+                            <a className="flex items-center justify-between p-4 rounded-xl bg-black/50 hover:bg-black/70 border border-blue-500/10 hover:border-blue-500/30 transition-all">
+                              <span className="text-gray-400 group-hover/item:text-blue-400 transition-colors">
                                 {item.title}
                               </span>
-                              <ExternalLink className="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                              <ExternalLink className="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-opacity text-blue-400" />
                             </a>
                           )}
                         </div>
@@ -157,28 +177,28 @@ export const Documentation = () => {
               ))}
             </div>
 
-            {/* Support Section */}
+            {/* Enhanced Support Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-16"
+              className="mt-24"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-3xl blur-xl" />
-                <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-gray-800/50">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl" />
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* Need Help Section */}
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-xl bg-primary-50 dark:bg-primary-900/30">
-                          <Code2 className="w-6 h-6 text-primary-500" />
+                        <div className="p-2 rounded-xl bg-blue-950/50">
+                          <Code2 className="w-6 h-6 text-blue-400" />
                         </div>
-                        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                        <h2 className="text-2xl font-semibold text-white">
                           Need Help? 🤝
                         </h2>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300">
+                      <p className="text-gray-400">
                         Check out our GitHub repository or join our community.
                       </p>
                       <div className="flex flex-wrap gap-4">
@@ -197,29 +217,30 @@ export const Documentation = () => {
                     {/* Support Section */}
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-xl bg-green-50 dark:bg-green-900/30">
-                          <Coffee className="w-6 h-6 text-green-500" />
+                        <div className="p-2 rounded-xl bg-purple-950/50">
+                          <Coffee className="w-6 h-6 text-purple-400" />
                         </div>
-                        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                        <h2 className="text-2xl font-semibold text-white">
                           Support Project ❤️
                         </h2>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        Your contributions help us create more components and keep the project alive.
+                      <p className="text-gray-400">
+                        Your contributions help us create more components and
+                        keep the project alive.
                       </p>
                       <div className="flex flex-wrap gap-4">
                         <SocialButton
                           href="https://github.com/GaneshVarma1"
                           icon={<Github className="w-5 h-5" />}
                           text="Contribute"
-                          color="green"
+                          color="purple"
                         />
                         <SocialButton
                           href="https://buymeacoffee.com/sriganeshshiram"
                           icon={<Coffee className="w-5 h-5" />}
                           text="Buy me a coffee"
                           variant="outline"
-                          color="green"
+                          color="purple"
                         />
                       </div>
                     </div>
@@ -234,41 +255,51 @@ export const Documentation = () => {
   );
 };
 
-// Helper Components
-const InstallStep = ({ title, package: pkg }: { title: string; package: string }) => (
-  <div className="bg-gray-900 dark:bg-gray-800 rounded-xl overflow-hidden">
-    <div className="px-4 py-2 bg-gray-800 dark:bg-gray-700 text-sm text-gray-200">
+// Update InstallStep component
+const InstallStep = ({
+  title,
+  package: pkg,
+}: {
+  title: string;
+  package: string;
+}) => (
+  <div className="bg-black rounded-xl overflow-hidden border border-blue-500/20">
+    <div className="px-4 py-2 bg-blue-950/30 text-sm text-blue-400 font-medium">
       {title}
     </div>
     <div className="p-4">
-      <code className="text-sm text-gray-100">{pkg}</code>
+      <code className="text-sm text-gray-400">{pkg}</code>
     </div>
   </div>
 );
 
+// Update SocialButton component
 const SocialButton = ({
   href,
   icon,
   text,
   variant = "solid",
-  color = "primary"
+  color = "primary",
 }: {
   href: string;
   icon?: React.ReactNode;
   text: string;
   variant?: "solid" | "outline";
-  color?: "primary" | "green";
+  color?: "primary" | "purple";
 }) => {
-  const baseStyles = "inline-flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-200";
+  const baseStyles =
+    "inline-flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-200";
   const colorStyles = {
     primary: {
-      solid: "bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:shadow-lg",
-      outline: "border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+      solid:
+        "bg-black/50 text-blue-400 hover:bg-black/70 border border-blue-500/30",
+      outline: "border border-blue-500/30 text-blue-400 hover:bg-black/50",
     },
-    green: {
-      solid: "bg-green-500 text-white hover:shadow-lg",
-      outline: "border border-green-500 text-green-500 dark:border-green-400 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20"
-    }
+    purple: {
+      solid:
+        "bg-black/50 text-purple-400 hover:bg-black/70 border border-purple-500/30",
+      outline: "border border-purple-500/30 text-purple-400 hover:bg-black/50",
+    },
   };
 
   return (
