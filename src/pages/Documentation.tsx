@@ -8,7 +8,6 @@ import {
   Github,
   Coffee,
   ExternalLink,
-  Stars,
 } from "lucide-react";
 
 interface SectionItem {
@@ -120,7 +119,7 @@ export const Documentation = () => {
             >
               <div className="flex justify-center mb-6">
                 <div className="p-3 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10">
-                  <Stars className="w-12 h-12 text-blue-400" />
+                  <Book className="w-12 h-12 text-blue-400" />
                 </div>
               </div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
