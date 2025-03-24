@@ -417,7 +417,7 @@ const ComponentsContent = () => {
 
         {/* Components Grid */}
         <div className="container mx-auto px-4 py-16">
-          <div className="space-y-32">
+          <div id="components" className="space-y-32 scroll-mt-32">
             {components.map((item, index) => (
               <motion.div
                 key={index}
@@ -425,7 +425,7 @@ const ComponentsContent = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="relative"
+                className="relative scroll-mt-32"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-400/5 to-secondary-400/5 rounded-3xl -m-8" />
                 <ComponentSection title={item.title} code={item.code}>

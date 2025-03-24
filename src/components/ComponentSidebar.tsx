@@ -22,6 +22,19 @@ export const ComponentSidebar = ({
   const normalizeTitle = (title: string) =>
     title.replace(/\s+/g, "-").toLowerCase();
 
+  const handleComponentClick = (e: React.MouseEvent<HTMLAnchorElement>, title: string) => {
+    e.preventDefault();
+    const targetId = normalizeTitle(title);
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const yOffset = -100; // Adjust this value based on your header height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setIsMobileOpen(false);
+    }
+  };
+
   const SidebarContent = () => (
     <>
       {/* Header */}
@@ -48,10 +61,10 @@ export const ComponentSidebar = ({
       <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="p-2 space-y-1">
           {filteredComponents.map((component) => (
-            <Link
+            <a
               key={component.title}
-              to={`#${normalizeTitle(component.title)}`}
-              onClick={() => setIsMobileOpen(false)}
+              href={`#${normalizeTitle(component.title)}`}
+              onClick={(e) => handleComponentClick(e, component.title)}
               className={`block px-4 py-2 rounded-lg transition-all duration-200 ${
                 normalizeTitle(activeSection) === normalizeTitle(component.title)
                   ? "bg-primary-500/10 text-primary-600 dark:text-primary-400 font-medium"
@@ -59,7 +72,7 @@ export const ComponentSidebar = ({
               }`}
             >
               {component.title}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
