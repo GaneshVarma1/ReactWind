@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   darkMode: 'class',
   theme: {
@@ -12,14 +12,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "color-mix(in srgb, var(--border) 100%, transparent)",
+        input: "color-mix(in srgb, var(--input) 100%, transparent)",
+        ring: "color-mix(in srgb, var(--ring) 100%, transparent)",
+        background: "color-mix(in srgb, var(--background) 100%, transparent)",
+        foreground: "color-mix(in srgb, var(--foreground) 100%, transparent)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--primary) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--primary-foreground) 100%, transparent)",
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
@@ -32,8 +32,8 @@ module.exports = {
           900: "#0c4a6e",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--secondary) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--secondary-foreground) 100%, transparent)",
           50: "#f5f3ff",
           100: "#ede9fe",
           200: "#ddd6fe",
@@ -46,24 +46,24 @@ module.exports = {
           900: "#4c1d95",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--destructive) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--destructive-foreground) 100%, transparent)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--muted) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--muted-foreground) 100%, transparent)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--accent) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--accent-foreground) 100%, transparent)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--popover) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--popover-foreground) 100%, transparent)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "color-mix(in srgb, var(--card) 100%, transparent)",
+          foreground: "color-mix(in srgb, var(--card-foreground) 100%, transparent)",
         },
       },
       borderRadius: {
@@ -75,7 +75,7 @@ module.exports = {
         marquee: "marquee 25s linear infinite",
         "marquee-reverse": "marquee-reverse 25s linear infinite",
         gradient: "gradient 8s linear infinite",
-        "spin-gradient": "spin-gradient 6s linear infinite", // New spinning gradient animation
+        "spin-gradient": "spin-gradient 6s linear infinite",
       },
       keyframes: {
         marquee: {
