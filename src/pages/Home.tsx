@@ -1,6 +1,7 @@
 import { Hero } from "../components/Hero";
 import { motion } from "framer-motion";
 import { Star, Users, Code2, Zap, Github, Coffee } from "lucide-react";
+import { DemoSection } from "../components/sections/DemoSection";
 
 const features = [
   {
@@ -33,6 +34,9 @@ export const Home = () => {
   return (
     <div className="bg-[#0B0F17]">
       <Hero />
+      
+      {/* Demo Section */}
+      <DemoSection />
       
       {/* Features Section */}
       <section className="py-32 relative">
