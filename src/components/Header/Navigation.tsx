@@ -3,6 +3,7 @@ import { NavItem } from "../../types";
 
 const navItems: NavItem[] = [
   { title: "Components", href: "/components" },
+  { title: "Templates", href: "/templates" },
   { title: "Documentation", href: "/docs" },
   { title: "GitHub", href: "https://github.com/GaneshVarma1" },
 ];

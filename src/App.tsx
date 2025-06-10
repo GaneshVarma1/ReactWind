@@ -14,6 +14,7 @@ import { Suspense, lazy } from "react";
 const LazyHome = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
 const LazyComponents = lazy(() => import("./pages/Components").then(module => ({ default: module.Components })));
 const LazyDocumentation = lazy(() => import("./pages/Documentation").then(module => ({ default: module.Documentation })));
+const LazyTemplates = lazy(() => import("./pages/Templates").then(module => ({ default: module.Templates })));
 
 // Loading component for suspense fallback
 const PageLoader = () => (
@@ -44,6 +45,7 @@ export const App = () => {
                 <Routes>
                   <Route path="/" element={<LazyHome />} />
                   <Route path="/components" element={<LazyComponents />} />
+                  <Route path="/templates" element={<LazyTemplates />} />
                   <Route path="/docs" element={<LazyDocumentation />} />
                   <Route path="*" element={<Error404 />} />
                 </Routes>
