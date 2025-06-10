@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useComponentTheme } from '../context/ThemeContext';
 import { ThemeToggle } from '../components/ThemeToggle';
@@ -20,18 +21,33 @@ const templates: Template[] = [
     githubUrl: "https://github.com/GaneshVarma1/Design1",
     demoUrl: "https://design1-ivory.vercel.app",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+  },
+  {
+    title: "Flappy Bird Portfolio",
+    description: "A fun and interactive portfolio template inspired by the classic Flappy Bird game. Features retro-style animations, game-like interactions, and a unique scrolling experience.",
+    videoUrl: "/Demo2.gif",
+    githubUrl: "https://github.com/GaneshVarma1/Design2",
+    demoUrl: "https://design-2-amber.vercel.app",
+    tags: ["Vite.js", "Tailwind CSS", "Game Theme", "Interactive"]
   }
 ];
 
 export const Templates = () => {
-  const { theme } = useComponentTheme();
+  const { theme, toggleTheme } = useComponentTheme();
+
+  // Force dark mode
+  useEffect(() => {
+    if (theme !== 'dark') {
+      toggleTheme();
+    }
+  }, [theme, toggleTheme]);
 
   return (
-    <div className={`min-h-screen ${theme === "dark" ? "bg-[#0B0F17]" : "bg-white"}`}>
+    <div className="min-h-screen bg-[#0B0F17]">
       <ThemeToggle />
       
       {/* Background Effects */}
-      <div className={`fixed inset-0 ${theme === "dark" ? "bg-[#0B0F17]/90" : "bg-white/90"} backdrop-blur-3xl`} />
+      <div className="fixed inset-0 bg-[#0B0F17]/90 backdrop-blur-3xl" />
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-secondary-500/10" />
 
       {/* Main Content */}
@@ -59,7 +75,7 @@ export const Templates = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
                 Ready-to-Use Templates
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Start your next project with our professionally designed templates
               </p>
             </motion.div>
@@ -76,7 +92,7 @@ export const Templates = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                  className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {/* Media Container */}
                   <div className="relative aspect-video overflow-hidden">
@@ -92,11 +108,11 @@ export const Templates = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    <h3 className="text-xl font-semibold text-white mb-4">
                       {template.title}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                    <p className="text-gray-300 mb-4 line-clamp-2">
                       {template.description}
                     </p>
 
