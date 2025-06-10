@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useComponentTheme } from '../context/ThemeContext';
 import { ThemeToggle } from '../components/ThemeToggle';
