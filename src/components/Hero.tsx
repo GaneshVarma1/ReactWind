@@ -53,7 +53,7 @@ export const Hero = () => {
 
               {/* Gradient text */}
               <span className="relative text-xs sm:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-primary-300 to-secondary-300 hover:from-primary-200 hover:to-secondary-200 transition-all duration-300">
-                100+ Ready-to-use Components
+                20+ Ready-to-use Components
               </span>
 
               {/* Floating particles */}
